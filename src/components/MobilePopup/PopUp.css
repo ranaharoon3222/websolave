@@ -1,0 +1,32 @@
+.popUp-box {
+    /* display: none; */
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    z-index: -1;
+    transition: 0.3s;
+}
+
+.popUpBox {
+    border: 2px solid #b9b9b9;
+    border-radius: 15px;
+    box-shadow: 1px 1px 13px 7px #b9b9b9;
+    margin: 5%;
+    padding: 8% 5%;
+    position: relative;
+    background-color: white;
+}
+
+.closeIcon {
+    width: 6%;
+    max-width: 30px;
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    cursor: pointer;
+}
+
+.closeIcon img {
+    width: 100%;
+}
