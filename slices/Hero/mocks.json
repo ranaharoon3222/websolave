@@ -1,0 +1,77 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Title Heree",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Success",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+					"width": 2747,
+					"height": 4120
+				},
+				"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+				"width": 2747,
+				"height": 4120,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"sub_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "test magna cupidatat anim qui et cillum cillum  exercitation deserunt Lorem Lorem velit proident do amet.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"footer_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Qui consequat qui proident ex Lorem exercitation irure quis consectetur. Velit do nulla id aute occaecat amet do excepteur cupidatat ullamco. Eu ea cupidatat culpa dolore non occaecat labore ullamco laboris culpa."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
