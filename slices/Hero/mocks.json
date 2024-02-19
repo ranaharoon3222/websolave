@@ -70,6 +70,25 @@
 						}
 					}
 				]
+			},
+			"bottom_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "over 150,000   all over the world",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 5,
+									"end": 14
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
 			}
 		},
 		"items": []

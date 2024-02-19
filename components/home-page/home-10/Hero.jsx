@@ -19,13 +19,11 @@ const Hero = ({ slice }) => {
 
           <HeroSubscribe />
 
-          <div className='pr-info fw-500 fs-20 tx-dark mt-35'>
-            Over
-            <span className='fw-bold text-decoration-underline'>
-              150,000+ client
-            </span>
-            all over the world.
-          </div>
+          <RichText
+            paragraphClassName={'pr-info fw-500 fs-20 tx-dark mt-35'}
+            field={slice?.primary.bottom_text}
+            em={'fw-bold text-decoration-underline'}
+          />
         </div>
       </div>
       {/* End .row */}

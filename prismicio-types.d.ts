@@ -110,6 +110,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   footer_text: prismic.RichTextField;
+
+  /**
+   * Bottom text field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.bottom_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  bottom_text: prismic.RichTextField;
 }
 
 /**

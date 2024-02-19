@@ -13,6 +13,8 @@ const RichText = ({
   em,
   heading2,
   heading3,
+  heading6,
+  heading5,
   list,
 }) => {
   return (
@@ -28,6 +30,15 @@ const RichText = ({
           ),
           heading3: ({ children }) => (
             <h3 className={`${heading3}`}>{children}</h3>
+          ),
+          heading4: ({ children }) => (
+            <h4 className={`${heading4}`}>{children}</h4>
+          ),
+          heading5: ({ children }) => (
+            <h5 className={`${heading5}`}>{children}</h5>
+          ),
+          heading6: ({ children }) => (
+            <h6 className={`${heading6}`}>{children}</h6>
           ),
           hyperlink: ({ node, children }) => {
             // console.log(node.data);
@@ -47,16 +58,13 @@ const RichText = ({
           strong: ({ children }) => (
             <strong className={`${strong}`}>{children}</strong>
           ),
-          em: ({ children }) => <em className={`${em}`}>{children}</em>,
+          em: ({ children }) => <span className={`${em}`}>{children}</span>,
 
           listItem: ({ children }) => (
             <li className={`${listItem}`}>{children}</li>
           ),
           paragraph: ({ children }) => (
             <p className={`${paragraphClassName}`}>{children}</p>
-          ),
-          heading4: ({ children }) => (
-            <h4 className={`${heading4}`}>{children}</h4>
           ),
         }}
       />
