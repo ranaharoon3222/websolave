@@ -4,6 +4,40 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type HeaderDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Header documents
+ */
+interface HeaderDocumentData {
+  /**
+   * `slices` field in *Header*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<HeaderDocumentDataSlicesSlice>;
+}
+
+/**
+ * Header document from Prismic
+ *
+ * - **API ID**: `header`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HeaderDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HeaderDocumentData>,
+    "header",
+    Lang
+  >;
+
 type PagesDocumentDataSlicesSlice = HeroSlice;
 
 /**
@@ -65,7 +99,7 @@ interface PagesDocumentData {
 export type PagesDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PagesDocumentData>, "pages", Lang>;
 
-export type AllDocumentTypes = PagesDocument;
+export type AllDocumentTypes = HeaderDocument | PagesDocument;
 
 /**
  * Primary content in *Hero → Primary*
@@ -159,6 +193,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      HeaderDocument,
+      HeaderDocumentData,
+      HeaderDocumentDataSlicesSlice,
       PagesDocument,
       PagesDocumentData,
       PagesDocumentDataSlicesSlice,
