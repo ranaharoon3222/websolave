@@ -28,7 +28,6 @@ export async function getServerSideProps({ params, previewData }) {
   return {
     props: {
       page,
-      //   settings,
     },
   };
 }
