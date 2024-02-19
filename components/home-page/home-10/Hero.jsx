@@ -3,7 +3,6 @@ import Illustration from './Illustration';
 import RichText from '@/components/prismic/RichText';
 
 const Hero = ({ slice }) => {
-  console.log(slice);
   return (
     <div className='container'>
       <div className='row'>

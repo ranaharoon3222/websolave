@@ -1,11 +1,11 @@
-import * as prismicH from '@prismicio/helpers';
+// import * as prismicH from '@prismicio/helpers';
 import { SliceZone } from '@prismicio/react';
 import { createClient } from '../prismicio';
 import { components } from '../slices/index';
 // import Head from 'next/head';
 // import { isFilled } from '@prismicio/client';
 
-const Page = ({ page, navigation }) => {
+const Page = ({ page }) => {
   return (
     <>
       {/* <Head>
