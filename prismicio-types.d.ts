@@ -84,6 +84,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PagesDocumentDataSlicesSlice =
+  | FeatureTwoSectionSlice
   | ServiceBoxSlice
   | FeatureOneSectionSlice
   | HeroSlice;
@@ -340,6 +341,146 @@ export type FeatureOneSectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *FeatureTwoSection → Primary*
+ */
+export interface FeatureTwoSectionSliceDefaultPrimary {
+  /**
+   * Image field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Top Text field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.top_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  top_text: prismic.RichTextField;
+
+  /**
+   * Title field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Card One Name field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.card_one_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_one_name: prismic.RichTextField;
+
+  /**
+   * Card One Text field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.card_one_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_one_text: prismic.RichTextField;
+
+  /**
+   * icon field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * More Btn Link field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.more_btn_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  more_btn_link: prismic.LinkField;
+
+  /**
+   * More Btn Label field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.more_btn_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  more_btn_label: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *FeatureTwoSection → Items*
+ */
+export interface FeatureTwoSectionSliceDefaultItem {
+  /**
+   * Text List field in *FeatureTwoSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.items[].text_list
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_list: prismic.RichTextField;
+}
+
+/**
+ * Default variation for FeatureTwoSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeatureTwoSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeatureTwoSectionSliceDefaultPrimary>,
+  Simplify<FeatureTwoSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *FeatureTwoSection*
+ */
+type FeatureTwoSectionSliceVariation = FeatureTwoSectionSliceDefault;
+
+/**
+ * FeatureTwoSection Shared Slice
+ *
+ * - **API ID**: `feature_two_section`
+ * - **Description**: FeatureTwoSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeatureTwoSectionSlice = prismic.SharedSlice<
+  "feature_two_section",
+  FeatureTwoSectionSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -565,6 +706,11 @@ declare module "@prismicio/client" {
       FeatureOneSectionSliceDefaultPrimary,
       FeatureOneSectionSliceVariation,
       FeatureOneSectionSliceDefault,
+      FeatureTwoSectionSlice,
+      FeatureTwoSectionSliceDefaultPrimary,
+      FeatureTwoSectionSliceDefaultItem,
+      FeatureTwoSectionSliceVariation,
+      FeatureTwoSectionSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
