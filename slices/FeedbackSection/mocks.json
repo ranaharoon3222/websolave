@@ -1,0 +1,92 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ullamco aliqua voluptate sit Lorem. Qui minim ipsum aute veniam nostrud sunt nulla laboris. Consectetur aliqua in id cillum."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"feedback_title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Consectetur irure nostrud labore et eiusmod laboris proident ex. Veniam quis sit velit dolor tempor occaecat."
+									}
+								}
+							]
+						}
+					],
+					[
+						"feedback_description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Et magna laboris ad dolor occaecat incididunt. Non ex eu quis velit ea incididunt eiusmod. Ullamco voluptate magna proident eiusmod aliqua eu id ipsum non quis exercitation esse."
+									}
+								}
+							]
+						}
+					],
+					[
+						"feedback_name",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Fugiat in veniam veniam officia Lorem eu mollit. Nisi occaecat qui nisi ex proident cillum amet officia id."
+									}
+								}
+							]
+						}
+					],
+					[
+						"feedback_image",
+						{
+							"__TYPE__": "ImageContent",
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+								"width": 4172,
+								"height": 4000
+							},
+							"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+							"width": 4172,
+							"height": 4000,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"thumbnails": {}
+						}
+					]
+				]
+			}
+		]
+	}
+]

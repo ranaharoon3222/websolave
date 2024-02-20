@@ -84,6 +84,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PagesDocumentDataSlicesSlice =
+  | FeedbackSectionSlice
   | FeatureTwoSectionSlice
   | ServiceBoxSlice
   | FeatureOneSectionSlice
@@ -464,9 +465,100 @@ export type FeatureTwoSectionSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *FeatureTwoSection → Primary*
+ */
+export interface FeatureTwoSectionSliceFeatureTwoWithNamePrimary {
+  /**
+   * Image field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Name field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Title field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Card One Name field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.card_one_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_one_name: prismic.RichTextField;
+
+  /**
+   * Card One Text field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.card_one_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_one_text: prismic.RichTextField;
+
+  /**
+   * icon field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+}
+
+/**
+ * Feature Two With Name variation for FeatureTwoSection Slice
+ *
+ * - **API ID**: `featureTwoWithName`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeatureTwoSectionSliceFeatureTwoWithName =
+  prismic.SharedSliceVariation<
+    "featureTwoWithName",
+    Simplify<FeatureTwoSectionSliceFeatureTwoWithNamePrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *FeatureTwoSection*
  */
-type FeatureTwoSectionSliceVariation = FeatureTwoSectionSliceDefault;
+type FeatureTwoSectionSliceVariation =
+  | FeatureTwoSectionSliceDefault
+  | FeatureTwoSectionSliceFeatureTwoWithName;
 
 /**
  * FeatureTwoSection Shared Slice
@@ -478,6 +570,96 @@ type FeatureTwoSectionSliceVariation = FeatureTwoSectionSliceDefault;
 export type FeatureTwoSectionSlice = prismic.SharedSlice<
   "feature_two_section",
   FeatureTwoSectionSliceVariation
+>;
+
+/**
+ * Primary content in *FeedbackSection → Primary*
+ */
+export interface FeedbackSectionSliceDefaultPrimary {
+  /**
+   * Title field in *FeedbackSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feedback_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *FeedbackSection → Items*
+ */
+export interface FeedbackSectionSliceDefaultItem {
+  /**
+   * Feedback Title field in *FeedbackSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feedback_section.items[].feedback_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  feedback_title: prismic.RichTextField;
+
+  /**
+   * Feedback Description field in *FeedbackSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feedback_section.items[].feedback_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  feedback_description: prismic.RichTextField;
+
+  /**
+   * Feedback Name field in *FeedbackSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feedback_section.items[].feedback_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  feedback_name: prismic.RichTextField;
+
+  /**
+   * Feedback Image field in *FeedbackSection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feedback_section.items[].feedback_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  feedback_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for FeedbackSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeedbackSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeedbackSectionSliceDefaultPrimary>,
+  Simplify<FeedbackSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *FeedbackSection*
+ */
+type FeedbackSectionSliceVariation = FeedbackSectionSliceDefault;
+
+/**
+ * FeedbackSection Shared Slice
+ *
+ * - **API ID**: `feedback_section`
+ * - **Description**: FeedbackSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeedbackSectionSlice = prismic.SharedSlice<
+  "feedback_section",
+  FeedbackSectionSliceVariation
 >;
 
 /**
@@ -709,8 +891,15 @@ declare module "@prismicio/client" {
       FeatureTwoSectionSlice,
       FeatureTwoSectionSliceDefaultPrimary,
       FeatureTwoSectionSliceDefaultItem,
+      FeatureTwoSectionSliceFeatureTwoWithNamePrimary,
       FeatureTwoSectionSliceVariation,
       FeatureTwoSectionSliceDefault,
+      FeatureTwoSectionSliceFeatureTwoWithName,
+      FeedbackSectionSlice,
+      FeedbackSectionSliceDefaultPrimary,
+      FeedbackSectionSliceDefaultItem,
+      FeedbackSectionSliceVariation,
+      FeedbackSectionSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
