@@ -4,23 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HeaderDocumentDataSlicesSlice = never;
-
-/**
- * Content for Header documents
- */
-interface HeaderDocumentData {
-  /**
-   * `slices` field in *Header*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<HeaderDocumentDataSlicesSlice>;
-}
+interface HeaderDocumentData {}
 
 /**
  * Header document from Prismic
@@ -38,7 +22,10 @@ export type HeaderDocument<Lang extends string = string> =
     Lang
   >;
 
-type PagesDocumentDataSlicesSlice = HeroSlice;
+type PagesDocumentDataSlicesSlice =
+  | ServiceBoxSlice
+  | FeatureOneSectionSlice
+  | HeroSlice;
 
 /**
  * Content for pages documents
@@ -99,7 +86,144 @@ interface PagesDocumentData {
 export type PagesDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PagesDocumentData>, "pages", Lang>;
 
-export type AllDocumentTypes = HeaderDocument | PagesDocument;
+/**
+ * Item in *Quality Services → Qualities*
+ */
+export interface QualityServicesDocumentDataQualitiesItem {
+  /**
+   * Icon Source field in *Quality Services → Qualities*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quality_services.qualities[].icon_source
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon_source: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Quality Services → Qualities*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quality_services.qualities[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Quality Services → Qualities*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quality_services.qualities[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Background Color field in *Quality Services → Qualities*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quality_services.qualities[].background_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  background_color: prismic.ColorField;
+}
+
+/**
+ * Content for Quality Services documents
+ */
+interface QualityServicesDocumentData {
+  /**
+   * Qualities field in *Quality Services*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quality_services.qualities[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  qualities: prismic.GroupField<
+    Simplify<QualityServicesDocumentDataQualitiesItem>
+  >;
+}
+
+/**
+ * Quality Services document from Prismic
+ *
+ * - **API ID**: `quality_services`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type QualityServicesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<QualityServicesDocumentData>,
+    "quality_services",
+    Lang
+  >;
+
+export type AllDocumentTypes =
+  | HeaderDocument
+  | PagesDocument
+  | QualityServicesDocument;
+
+/**
+ * Primary content in *FeatureOneSection → Primary*
+ */
+export interface FeatureOneSectionSliceDefaultPrimary {
+  /**
+   * Title field in *FeatureOneSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_one_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Sub Title field in *FeatureOneSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_one_section.primary.sub_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_title: prismic.RichTextField;
+}
+
+/**
+ * Default variation for FeatureOneSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeatureOneSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeatureOneSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FeatureOneSection*
+ */
+type FeatureOneSectionSliceVariation = FeatureOneSectionSliceDefault;
+
+/**
+ * FeatureOneSection Shared Slice
+ *
+ * - **API ID**: `feature_one_section`
+ * - **Description**: FeatureOneSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeatureOneSectionSlice = prismic.SharedSlice<
+  "feature_one_section",
+  FeatureOneSectionSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Primary*
@@ -154,6 +278,36 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   bottom_text: prismic.RichTextField;
+
+  /**
+   * Card One Text field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.card_one_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_one_text: prismic.RichTextField;
+
+  /**
+   * Card One Link field in *Hero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.card_one_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  card_one_link: prismic.LinkField;
+
+  /**
+   * Card One Label field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.card_one_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_one_label: prismic.KeyTextField;
 }
 
 /**
@@ -183,6 +337,91 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Primary content in *ServiceBox → Items*
+ */
+export interface ServiceBoxSliceDefaultItem {
+  /**
+   * Icon field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * link field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Background Color field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].background_color
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  background_color: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ServiceBox Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceBoxSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<ServiceBoxSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ServiceBox*
+ */
+type ServiceBoxSliceVariation = ServiceBoxSliceDefault;
+
+/**
+ * ServiceBox Shared Slice
+ *
+ * - **API ID**: `service_box`
+ * - **Description**: ServiceBox
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceBoxSlice = prismic.SharedSlice<
+  "service_box",
+  ServiceBoxSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -195,15 +434,25 @@ declare module "@prismicio/client" {
     export type {
       HeaderDocument,
       HeaderDocumentData,
-      HeaderDocumentDataSlicesSlice,
       PagesDocument,
       PagesDocumentData,
       PagesDocumentDataSlicesSlice,
+      QualityServicesDocument,
+      QualityServicesDocumentData,
+      QualityServicesDocumentDataQualitiesItem,
       AllDocumentTypes,
+      FeatureOneSectionSlice,
+      FeatureOneSectionSliceDefaultPrimary,
+      FeatureOneSectionSliceVariation,
+      FeatureOneSectionSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      ServiceBoxSlice,
+      ServiceBoxSliceDefaultItem,
+      ServiceBoxSliceVariation,
+      ServiceBoxSliceDefault,
     };
   }
 }

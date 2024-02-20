@@ -3,5 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  feature_one_section: dynamic(() => import("./FeatureOneSection")),
   hero: dynamic(() => import("./Hero")),
+  service_box: dynamic(() => import("./ServiceBox")),
 };

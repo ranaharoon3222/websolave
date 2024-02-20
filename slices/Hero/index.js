@@ -4,7 +4,7 @@
  * @param {HeroProps}
  */
 
-import Hero from '@/components/home-page/home-10/Hero';
+import Hero from "@/components/home-page/home-10/Hero";
 
 const HeroSection = ({ slice }) => {
   return (
@@ -12,14 +12,15 @@ const HeroSection = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className='hero-banner-one p-30'>
-        <div className='bg-wrapper' data-aos='fade'>
+      <div className="hero-banner-one p-30">
+        <div className="bg-wrapper" data-aos="fade">
           <Hero slice={slice} />
           {/* /.container */}
+
           <img
-            src='/images/shape/shape_08.svg'
-            alt='illustration'
-            className='lazy-img shapes shape-eight'
+            src="/images/shape/shape_08.svg"
+            alt="illustration"
+            className="lazy-img shapes shape-eight"
           />
         </div>
       </div>

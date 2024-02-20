@@ -1,0 +1,53 @@
+{
+  "format": "custom",
+  "id": "quality_services",
+  "label": "Quality Services",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "qualities": {
+        "type": "Group",
+        "config": {
+          "label": "Qualities",
+          "repeat": true,
+          "fields": {
+            "icon_source": {
+              "type": "Image",
+              "config": {
+                "label": "Icon Source",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "title": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Title",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "description": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Description",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "background_color": {
+              "type": "Color",
+              "config": {
+                "label": "Background Color",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

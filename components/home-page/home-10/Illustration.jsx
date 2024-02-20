@@ -1,4 +1,8 @@
-const Illustration = () => {
+import { PrismicNextImage } from "@prismicio/next";
+
+const Illustration = ({ slice }) => {
+  // Ensure slice and slice.primary.image are defined before accessing .url
+  const imageUrl = slice?.primary?.image?.url || "";
   const shapes = [
     { src: "/images/shape/shape_01.svg", className: "shapes shape-one" },
     { src: "/images/shape/shape_02.svg", className: "shapes shape-two" },
@@ -11,11 +15,17 @@ const Illustration = () => {
 
   return (
     <div className="illustration-holder">
-      <img
+      <PrismicNextImage
+        field={slice?.primary.image}
+        sizes="100vw"
+        className="lazy-img main-illustration w-100 h-auto"
+        fallback={<p>The field is empty!</p>}
+      />
+      {/* <img
         src="/images/assets/ils_01.png"
         alt="illustration"
-        className="lazy-img main-illustration w-100"
-      />
+        className="lazy-img main-illustration w-100 h-auto"
+      /> */}
       {shapes.map((shape, i) => (
         <img
           key={i}

@@ -11,6 +11,7 @@ import Testimonial from "../../components/home-page/home-10/Testimonial";
 import FancyBanner from "../../components/home-page/home-10/FancyBanner";
 import CallToActions from "../../components/home-page/home-10/CallToActions";
 import Footer from "../../components/home-page/home-10/Footer";
+import FeatureOne from "@/components/home-page/home-10/FeatureOne";
 
 const AgencyModern = () => {
   return (
@@ -49,20 +50,7 @@ const AgencyModern = () => {
       <div className="fancy-feature-one pt-170 lg-pt-140">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-6" data-aos="fade-right">
-              <div className="title-style-one text-center text-lg-start">
-                <h2 className="main-title fw-bold tx-dark m0">
-                  Provide <span>Quality</span> Services.
-                </h2>
-              </div>
-              {/* /.title-style-one */}
-            </div>
-            <div className="col-lg-5 ms-auto" data-aos="fade-left">
-              <p className="text-lg text-center text-lg-start md-pt-30 m0">
-                Jano provides alternative asset management solutions to a global
-                client base and manages a significant.
-              </p>
-            </div>
+            <FeatureOne />
           </div>
         </div>
         {/* End .row */}

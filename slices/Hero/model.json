@@ -55,6 +55,30 @@
             "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
+        },
+        "card_one_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card One Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "card_one_link": {
+          "type": "Link",
+          "config": {
+            "label": "Card One Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "card_one_label": {
+          "type": "Text",
+          "config": {
+            "label": "Card One Label",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

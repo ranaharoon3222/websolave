@@ -80,6 +80,11 @@
 							"text": "over 150,000   all over the world",
 							"spans": [
 								{
+									"type": "em",
+									"start": 5,
+									"end": 12
+								},
+								{
 									"type": "strong",
 									"start": 5,
 									"end": 14
@@ -89,6 +94,31 @@
 						"direction": "ltr"
 					}
 				]
+			},
+			"card_one_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading6",
+						"content": {
+							"text": "Save up to 50% in Yearly plan.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"card_one_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://websolave2.netlify.app/home/#"
+				}
+			},
+			"card_one_label": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Learn more"
 			}
 		},
 		"items": []

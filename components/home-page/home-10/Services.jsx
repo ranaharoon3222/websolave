@@ -1,3 +1,5 @@
+import RichText from "@/components/prismic/RichText";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 
 const servicesData = [
@@ -31,10 +33,10 @@ const servicesData = [
   },
 ];
 
-const Services = () => {
+const Services = ({ item }) => {
   return (
     <>
-      {servicesData.map((service, index) => (
+      {/* {servicesData.map((service, index) => (
         <div
           key={index}
           className={`col-lg-3 col-sm-6`}
@@ -65,9 +67,32 @@ const Services = () => {
               />
             </Link>
           </div>
-          {/* /.card-style-one */}
         </div>
-      ))}
+      ))} */}
+      <div className="card-style-one pe-xxl-5 position-relative mt-40">
+        <div
+          className="icon d-flex align-items-center justify-content-center"
+          style={{ backgroundColor: item.background_color }}
+        >
+          <PrismicNextImage
+            field={item.icon}
+            sizes="100vw"
+            className="lazy-img"
+          />
+        </div>
+        <RichText
+          heading5={"fw-500 mt-35 mb-25"}
+          field={item.title}
+          hyperlink={"tran3s tx-dark"}
+        />
+        {/* <h5 className="fw-500 mt-35 mb-25">
+          {item.title.map((t) => t.text).join()}
+        </h5> */}
+        <RichText paragraphClassName="mb-25" field={item.description} />
+        <PrismicNextLink field={item.link}>
+          <img src="/images/icon/icon_05.svg" alt="icon" className="lazy-img" />
+        </PrismicNextLink>
+      </div>
     </>
   );
 };

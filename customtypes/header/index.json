@@ -5,11 +5,6 @@
   "repeatable": false,
   "status": true,
   "json": {
-    "Main": {
-      "slices": {
-        "type": "Slices",
-        "fieldset": "Slice Zone"
-      }
-    }
+    "Main": {}
   }
 }
