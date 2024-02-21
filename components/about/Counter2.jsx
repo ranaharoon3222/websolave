@@ -26,7 +26,7 @@ const data = [
   },
 ];
 
-const Counter2 = () => {
+const Counter2 = ({ slice }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     rootMargin: "-100px 0px",
@@ -42,7 +42,7 @@ const Counter2 = () => {
 
   return (
     <>
-      {data.map((item, index) => (
+      {slice.items.map((item, index) => (
         <div
           className="col-lg-4 col-sm-6"
           key={index}

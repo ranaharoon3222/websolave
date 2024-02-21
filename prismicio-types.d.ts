@@ -149,6 +149,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PagesDocumentDataSlicesSlice =
+  | CounterTwoSectionSlice
   | FancyShortBannerSectionSlice
   | WrapperSectionSlice
   | FeedbackSectionSlice
@@ -353,6 +354,91 @@ export type AllDocumentTypes =
   | PagesDocument
   | ProjectsDocument
   | ServicesDocument;
+
+/**
+ * Primary content in *CounterTwoSection → Items*
+ */
+export interface CounterTwoSectionSliceDefaultItem {
+  /**
+   * Count field in *CounterTwoSection → Items*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: counter_two_section.items[].count
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  count: prismic.NumberField;
+
+  /**
+   * Label field in *CounterTwoSection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: counter_two_section.items[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Unit field in *CounterTwoSection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: counter_two_section.items[].unit
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  unit: prismic.KeyTextField;
+
+  /**
+   * Delay field in *CounterTwoSection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: counter_two_section.items[].delay
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  delay: prismic.KeyTextField;
+
+  /**
+   * Factor field in *CounterTwoSection → Items*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: counter_two_section.items[].factor
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  factor: prismic.NumberField;
+}
+
+/**
+ * Default variation for CounterTwoSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CounterTwoSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<CounterTwoSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *CounterTwoSection*
+ */
+type CounterTwoSectionSliceVariation = CounterTwoSectionSliceDefault;
+
+/**
+ * CounterTwoSection Shared Slice
+ *
+ * - **API ID**: `counter_two_section`
+ * - **Description**: CounterTwoSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CounterTwoSectionSlice = prismic.SharedSlice<
+  "counter_two_section",
+  CounterTwoSectionSliceVariation
+>;
 
 /**
  * Primary content in *FancyShortBannerSection → Primary*
@@ -1410,6 +1496,10 @@ declare module "@prismicio/client" {
       ServicesDocumentData,
       ServicesDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CounterTwoSectionSlice,
+      CounterTwoSectionSliceDefaultItem,
+      CounterTwoSectionSliceVariation,
+      CounterTwoSectionSliceDefault,
       FancyShortBannerSectionSlice,
       FancyShortBannerSectionSliceDefaultPrimary,
       FancyShortBannerSectionSliceVariation,

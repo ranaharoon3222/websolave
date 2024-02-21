@@ -1,0 +1,54 @@
+{
+  "id": "counter_two_section",
+  "type": "SharedSlice",
+  "name": "CounterTwoSection",
+  "description": "CounterTwoSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "count": {
+          "type": "Number",
+          "config": {
+            "label": "Count",
+            "placeholder": ""
+          }
+        },
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "unit": {
+          "type": "Text",
+          "config": {
+            "label": "Unit",
+            "placeholder": ""
+          }
+        },
+        "delay": {
+          "type": "Text",
+          "config": {
+            "label": "Delay",
+            "placeholder": ""
+          }
+        },
+        "factor": {
+          "type": "Number",
+          "config": {
+            "label": "Factor",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"count",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "29",
+							"type": "Number"
+						}
+					],
+					[
+						"label",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "road",
+							"type": "Text"
+						}
+					],
+					[
+						"unit",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "prevent",
+							"type": "Text"
+						}
+					],
+					[
+						"delay",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "may",
+							"type": "Text"
+						}
+					],
+					[
+						"factor",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "11",
+							"type": "Number"
+						}
+					]
+				]
+			}
+		]
+	}
+]

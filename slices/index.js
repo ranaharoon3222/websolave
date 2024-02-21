@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  counter_two_section: dynamic(() => import("./CounterTwoSection")),
   fancy_short_banner_section: dynamic(
     () => import("./FancyShortBannerSection"),
   ),

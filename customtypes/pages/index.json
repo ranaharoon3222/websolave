@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "counter_two_section": {
+              "type": "SharedSlice"
+            },
             "fancy_short_banner_section": {
               "type": "SharedSlice"
             },
