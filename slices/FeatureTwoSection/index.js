@@ -1,3 +1,4 @@
+import AboutCeo from "@/components/about/AboutCeo";
 import FancyBlock from "@/components/home-page/home-10/FancyBlock";
 import OurAim from "@/components/home-page/home-10/OurAim";
 
@@ -26,6 +27,14 @@ const FeatureTwoSection = ({ slice }) => {
         <div className="fancy-feature-two position-relative pt-250 lg-pt-120">
           <div className="container">
             <FancyBlock slice={slice} />
+          </div>
+          {/* /.container */}
+        </div>
+      )}
+      {slice.variation === "aboutFeatureOne" && (
+        <div className="fancy-feature-two position-relative pt-150 lg-pt-90">
+          <div className="container">
+            <AboutCeo slice={slice} />
           </div>
           {/* /.container */}
         </div>

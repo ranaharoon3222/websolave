@@ -678,11 +678,131 @@ export type FeatureTwoSectionSliceFeatureTwoWithName =
   >;
 
 /**
+ * Primary content in *FeatureTwoSection → Primary*
+ */
+export interface FeatureTwoSectionSliceAboutFeatureOnePrimary {
+  /**
+   * Image field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Top Text field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.top_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  top_text: prismic.RichTextField;
+
+  /**
+   * Title field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Question field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Card One Name field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.card_one_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_one_name: prismic.RichTextField;
+
+  /**
+   * Card One Text field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.card_one_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_one_text: prismic.RichTextField;
+
+  /**
+   * icon field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Answer field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField;
+
+  /**
+   * Bottom Text field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.bottom_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  bottom_text: prismic.RichTextField;
+
+  /**
+   * Rating field in *FeatureTwoSection → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_two_section.primary.rating
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  rating: prismic.NumberField;
+}
+
+/**
+ * About Feature One variation for FeatureTwoSection Slice
+ *
+ * - **API ID**: `aboutFeatureOne`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeatureTwoSectionSliceAboutFeatureOne =
+  prismic.SharedSliceVariation<
+    "aboutFeatureOne",
+    Simplify<FeatureTwoSectionSliceAboutFeatureOnePrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *FeatureTwoSection*
  */
 type FeatureTwoSectionSliceVariation =
   | FeatureTwoSectionSliceDefault
-  | FeatureTwoSectionSliceFeatureTwoWithName;
+  | FeatureTwoSectionSliceFeatureTwoWithName
+  | FeatureTwoSectionSliceAboutFeatureOne;
 
 /**
  * FeatureTwoSection Shared Slice
@@ -1302,9 +1422,11 @@ declare module "@prismicio/client" {
       FeatureTwoSectionSliceDefaultPrimary,
       FeatureTwoSectionSliceDefaultItem,
       FeatureTwoSectionSliceFeatureTwoWithNamePrimary,
+      FeatureTwoSectionSliceAboutFeatureOnePrimary,
       FeatureTwoSectionSliceVariation,
       FeatureTwoSectionSliceDefault,
       FeatureTwoSectionSliceFeatureTwoWithName,
+      FeatureTwoSectionSliceAboutFeatureOne,
       FeedbackSectionSlice,
       FeedbackSectionSliceDefaultPrimary,
       FeedbackSectionSliceDefaultItem,
