@@ -10,6 +10,7 @@ const Hero = ({ slice }) => {
         <div className="col-lg-6 col-md-7">
           <RichText
             heading1={"hero-heading fw-bold tx-dark"}
+            em={"position-relative d-inline-block"}
             field={slice?.primary.title}
           />
 

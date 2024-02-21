@@ -1,30 +1,35 @@
-const FancyBanner = () => {
+import RichText from "@/components/prismic/RichText";
+import { PrismicNextLink } from "@prismicio/next";
+
+const FancyBanner = ({ slice }) => {
   return (
     <div className="wrapper position-relative mt-150">
       <div className="container">
         <div className="row">
           <div className="col-xl-8 col-lg-10 m-auto text-center">
             <div className="title-style-one" data-aos="fade-up">
-              <h2 className="main-title fw-bold tx-dark m0">
-                Ready to take plan? It’s just a matter of <span>one clike</span>
-              </h2>
+              <RichText
+                heading2={"main-title fw-bold tx-dark m0"}
+                field={slice.primary.title}
+              />
             </div>{" "}
             {/* /.title-style-one */}
-            <p
-              className="text-lg tx-dark pt-40 pb-35 lg-pt-30 lg-pb-20 "
+            <RichText
+              paragraphClassName={
+                "text-lg tx-dark pt-40 pb-35 lg-pt-30 lg-pb-20 "
+              }
+              field={slice.primary.sub_title}
               data-aos="fade-up"
               data-aos-delay="100"
-            >
-              Try it risk free — we don’t charge cancellation fees.
-            </p>
-            <a
-              href="#"
+            />
+            <PrismicNextLink
+              field={slice.primary.button_link}
               className="btn-two fs-18 fw-500"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Purchase Now
-            </a>
+              {slice.primary.button_label}
+            </PrismicNextLink>
           </div>
         </div>
       </div>

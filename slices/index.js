@@ -3,9 +3,13 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  fancy_short_banner_section: dynamic(
+    () => import("./FancyShortBannerSection"),
+  ),
   feature_one_section: dynamic(() => import("./FeatureOneSection")),
   feature_two_section: dynamic(() => import("./FeatureTwoSection")),
   feedback_section: dynamic(() => import("./FeedbackSection")),
   hero: dynamic(() => import("./Hero")),
   service_box: dynamic(() => import("./ServiceBox")),
+  wrapper_section: dynamic(() => import("./WrapperSection")),
 };

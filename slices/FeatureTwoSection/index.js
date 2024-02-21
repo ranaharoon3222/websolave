@@ -1,3 +1,4 @@
+import FancyBlock from "@/components/home-page/home-10/FancyBlock";
 import OurAim from "@/components/home-page/home-10/OurAim";
 
 /**
@@ -11,12 +12,24 @@ const FeatureTwoSection = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="fancy-feature-two position-relative pt-225 mt-40 lg-pt-100 sm-pt-60">
-        <div className="container">
-          <OurAim slice={slice} />
+      {/* /.fancy-feature-two - Default variation only */}
+      {slice.variation === "default" && (
+        <div className="fancy-feature-two position-relative pt-225 mt-40 lg-pt-100 sm-pt-60">
+          <div className="container">
+            <OurAim slice={slice} />
+          </div>
+          {/* /.container */}
         </div>
-        {/* /.container */}
-      </div>
+      )}
+      {/* /.fancy-feature-two - featureTwoWithName variation only */}
+      {slice.variation === "featureTwoWithName" && (
+        <div className="fancy-feature-two position-relative pt-250 lg-pt-120">
+          <div className="container">
+            <FancyBlock slice={slice} />
+          </div>
+          {/* /.container */}
+        </div>
+      )}
     </section>
   );
 };

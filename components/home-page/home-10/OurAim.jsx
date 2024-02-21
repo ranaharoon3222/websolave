@@ -57,7 +57,6 @@ const OurAim = ({ slice }) => {
           ))}
         </div>
         <PrismicNextLink
-          href={"/pages-menu/about-us-v1"}
           field={slice.primary.more_btn_link}
           className="more-btn tran3s fw-500 fs-18"
           data-aos="fade-left"

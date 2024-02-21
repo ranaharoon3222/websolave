@@ -17,6 +17,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "fancy_short_banner_section": {
+              "type": "SharedSlice"
+            },
+            "wrapper_section": {
+              "type": "SharedSlice"
+            },
             "feedback_section": {
               "type": "SharedSlice"
             },

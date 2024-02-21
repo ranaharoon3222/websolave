@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Form from "./Form";
+import RichText from "@/components/prismic/RichText";
 
-const CallToActions = () => {
+const CallToActions = ({ slice }) => {
   return (
     <div className="fancy-short-banner-one mt-170 lg-mt-120">
       <div className="container">
@@ -12,10 +13,18 @@ const CallToActions = () => {
               <div className="row align-items-end">
                 <div className="col-lg-6">
                   <div className="title-style-two">
-                    <div className="sc-title fw-500 ">Subscirbe Now</div>
-                    <h4 className="main-title fw-bold tx-dark">
+                    <RichText
+                      paragraphClassName="sc-title fw-500 mb-0"
+                      field={slice.primary.top_text}
+                    />
+                    {/* <div className="sc-title fw-500 ">Subscirbe Now</div> */}
+                    <RichText
+                      heading4="main-title fw-bold tx-dark"
+                      field={slice.primary.title}
+                    />
+                    {/* <h4 className="main-title fw-bold tx-dark">
                       New user? Start your free trial now.
-                    </h4>
+                    </h4> */}
                   </div>
                   {/* /.title-style-two */}
                 </div>

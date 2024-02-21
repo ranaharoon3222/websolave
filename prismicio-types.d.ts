@@ -84,6 +84,8 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PagesDocumentDataSlicesSlice =
+  | FancyShortBannerSectionSlice
+  | WrapperSectionSlice
   | FeedbackSectionSlice
   | FeatureTwoSectionSlice
   | ServiceBoxSlice
@@ -285,6 +287,62 @@ export type AllDocumentTypes =
   | PagesDocument
   | ProjectsDocument
   | ServicesDocument;
+
+/**
+ * Primary content in *FancyShortBannerSection → Primary*
+ */
+export interface FancyShortBannerSectionSliceDefaultPrimary {
+  /**
+   * Top Text field in *FancyShortBannerSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fancy_short_banner_section.primary.top_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  top_text: prismic.RichTextField;
+
+  /**
+   * Title field in *FancyShortBannerSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fancy_short_banner_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Default variation for FancyShortBannerSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FancyShortBannerSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FancyShortBannerSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FancyShortBannerSection*
+ */
+type FancyShortBannerSectionSliceVariation =
+  FancyShortBannerSectionSliceDefault;
+
+/**
+ * FancyShortBannerSection Shared Slice
+ *
+ * - **API ID**: `fancy_short_banner_section`
+ * - **Description**: FancyShortBannerSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FancyShortBannerSectionSlice = prismic.SharedSlice<
+  "fancy_short_banner_section",
+  FancyShortBannerSectionSliceVariation
+>;
 
 /**
  * Primary content in *FeatureOneSection → Primary*
@@ -499,14 +557,14 @@ export interface FeatureTwoSectionSliceFeatureTwoWithNamePrimary {
   title: prismic.RichTextField;
 
   /**
-   * Description field in *FeatureTwoSection → Primary*
+   * Sub Title field in *FeatureTwoSection → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: feature_two_section.primary.description
+   * - **API ID Path**: feature_two_section.primary.sub_title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  description: prismic.RichTextField;
+  sub_title: prismic.RichTextField;
 
   /**
    * Card One Name field in *FeatureTwoSection → Primary*
@@ -843,9 +901,173 @@ export type ServiceBoxSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ServiceBox → Items*
+ */
+export interface ServiceBoxSliceFeaturesWrapperItem {
+  /**
+   * Icon field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Delay field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].delay
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  delay: prismic.NumberField;
+}
+
+/**
+ * Features Wrapper variation for ServiceBox Slice
+ *
+ * - **API ID**: `featuresWrapper`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceBoxSliceFeaturesWrapper = prismic.SharedSliceVariation<
+  "featuresWrapper",
+  Record<string, never>,
+  Simplify<ServiceBoxSliceFeaturesWrapperItem>
+>;
+
+/**
+ * Primary content in *ServiceBox → Primary*
+ */
+export interface ServiceBoxSliceBlogSectionOnePrimary {
+  /**
+   * Title field in *ServiceBox → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Button Link field in *ServiceBox → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Label field in *ServiceBox → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ServiceBox → Items*
+ */
+export interface ServiceBoxSliceBlogSectionOneItem {
+  /**
+   * Image field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Badge field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].badge
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  badge: prismic.RichTextField;
+
+  /**
+   * link field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Blog Title field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].blog_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  blog_title: prismic.RichTextField;
+
+  /**
+   * Badge Bg Color field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].badge_bg_color
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  badge_bg_color: prismic.KeyTextField;
+}
+
+/**
+ * Blog Section One variation for ServiceBox Slice
+ *
+ * - **API ID**: `blogSectionOne`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceBoxSliceBlogSectionOne = prismic.SharedSliceVariation<
+  "blogSectionOne",
+  Simplify<ServiceBoxSliceBlogSectionOnePrimary>,
+  Simplify<ServiceBoxSliceBlogSectionOneItem>
+>;
+
+/**
  * Slice variation for *ServiceBox*
  */
-type ServiceBoxSliceVariation = ServiceBoxSliceDefault;
+type ServiceBoxSliceVariation =
+  | ServiceBoxSliceDefault
+  | ServiceBoxSliceFeaturesWrapper
+  | ServiceBoxSliceBlogSectionOne;
 
 /**
  * ServiceBox Shared Slice
@@ -857,6 +1079,81 @@ type ServiceBoxSliceVariation = ServiceBoxSliceDefault;
 export type ServiceBoxSlice = prismic.SharedSlice<
   "service_box",
   ServiceBoxSliceVariation
+>;
+
+/**
+ * Primary content in *WrapperSection → Primary*
+ */
+export interface WrapperSectionSliceDefaultPrimary {
+  /**
+   * Title field in *WrapperSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: wrapper_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Sub Title field in *WrapperSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: wrapper_section.primary.sub_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_title: prismic.RichTextField;
+
+  /**
+   * Button Link field in *WrapperSection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: wrapper_section.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Label field in *WrapperSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: wrapper_section.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for WrapperSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WrapperSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<WrapperSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *WrapperSection*
+ */
+type WrapperSectionSliceVariation = WrapperSectionSliceDefault;
+
+/**
+ * WrapperSection Shared Slice
+ *
+ * - **API ID**: `wrapper_section`
+ * - **Description**: WrapperSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WrapperSectionSlice = prismic.SharedSlice<
+  "wrapper_section",
+  WrapperSectionSliceVariation
 >;
 
 declare module "@prismicio/client" {
@@ -884,6 +1181,10 @@ declare module "@prismicio/client" {
       ServicesDocumentData,
       ServicesDocumentDataSlicesSlice,
       AllDocumentTypes,
+      FancyShortBannerSectionSlice,
+      FancyShortBannerSectionSliceDefaultPrimary,
+      FancyShortBannerSectionSliceVariation,
+      FancyShortBannerSectionSliceDefault,
       FeatureOneSectionSlice,
       FeatureOneSectionSliceDefaultPrimary,
       FeatureOneSectionSliceVariation,
@@ -906,8 +1207,17 @@ declare module "@prismicio/client" {
       HeroSliceDefault,
       ServiceBoxSlice,
       ServiceBoxSliceDefaultItem,
+      ServiceBoxSliceFeaturesWrapperItem,
+      ServiceBoxSliceBlogSectionOnePrimary,
+      ServiceBoxSliceBlogSectionOneItem,
       ServiceBoxSliceVariation,
       ServiceBoxSliceDefault,
+      ServiceBoxSliceFeaturesWrapper,
+      ServiceBoxSliceBlogSectionOne,
+      WrapperSectionSlice,
+      WrapperSectionSliceDefaultPrimary,
+      WrapperSectionSliceVariation,
+      WrapperSectionSliceDefault,
     };
   }
 }

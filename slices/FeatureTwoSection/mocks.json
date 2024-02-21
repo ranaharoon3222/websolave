@@ -177,17 +177,6 @@
 					}
 				]
 			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Incididunt voluptate veniam exercitation cupidatat proident velit veniam do cupidatat officia do."
-						}
-					}
-				]
-			},
 			"card_one_name": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -240,6 +229,17 @@
 						"type": "paragraph",
 						"content": {
 							"text": "Aliqua laboris laborum nulla nulla nostrud aliquip nostrud veniam labore tempor."
+						}
+					}
+				]
+			},
+			"sub_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aute sunt voluptate amet cupidatat cupidatat commodo anim do veniam consectetur."
 						}
 					}
 				]
