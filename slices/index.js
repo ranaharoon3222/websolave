@@ -14,5 +14,8 @@ export const components = {
   hero: dynamic(() => import("./Hero")),
   navigation_item: dynamic(() => import("./NavigationItem")),
   service_box: dynamic(() => import("./ServiceBox")),
+  testimonial_feedback_section: dynamic(
+    () => import("./TestimonialFeedbackSection"),
+  ),
   wrapper_section: dynamic(() => import("./WrapperSection")),
 };

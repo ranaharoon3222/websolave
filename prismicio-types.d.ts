@@ -1823,6 +1823,128 @@ export type ServiceBoxSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TestimonialFeedbackSection → Primary*
+ */
+export interface TestimonialFeedbackSectionSliceDefaultPrimary {
+  /**
+   * Title field in *TestimonialFeedbackSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Image field in *TestimonialFeedbackSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_section.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * left Image field in *TestimonialFeedbackSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_section.primary.left_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_image: prismic.ImageField<never>;
+
+  /**
+   * Rating Count field in *TestimonialFeedbackSection → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_section.primary.rating_count
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  rating_count: prismic.NumberField;
+
+  /**
+   * Rating Text field in *TestimonialFeedbackSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_section.primary.rating_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rating_text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *TestimonialFeedbackSection → Items*
+ */
+export interface TestimonialFeedbackSectionSliceDefaultItem {
+  /**
+   * Feedback field in *TestimonialFeedbackSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_section.items[].feedback
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  feedback: prismic.RichTextField;
+
+  /**
+   * Name field in *TestimonialFeedbackSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_section.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Icon field in *TestimonialFeedbackSection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_section.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for TestimonialFeedbackSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialFeedbackSectionSliceDefault =
+  prismic.SharedSliceVariation<
+    "default",
+    Simplify<TestimonialFeedbackSectionSliceDefaultPrimary>,
+    Simplify<TestimonialFeedbackSectionSliceDefaultItem>
+  >;
+
+/**
+ * Slice variation for *TestimonialFeedbackSection*
+ */
+type TestimonialFeedbackSectionSliceVariation =
+  TestimonialFeedbackSectionSliceDefault;
+
+/**
+ * TestimonialFeedbackSection Shared Slice
+ *
+ * - **API ID**: `testimonial_feedback_section`
+ * - **Description**: TestimonialFeedbackSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialFeedbackSectionSlice = prismic.SharedSlice<
+  "testimonial_feedback_section",
+  TestimonialFeedbackSectionSliceVariation
+>;
+
+/**
  * Primary content in *WrapperSection → Primary*
  */
 export interface WrapperSectionSliceDefaultPrimary {
@@ -2023,6 +2145,11 @@ declare module "@prismicio/client" {
       ServiceBoxSliceFeaturesWrapper,
       ServiceBoxSliceBlogSectionOne,
       ServiceBoxSliceAboutTeam,
+      TestimonialFeedbackSectionSlice,
+      TestimonialFeedbackSectionSliceDefaultPrimary,
+      TestimonialFeedbackSectionSliceDefaultItem,
+      TestimonialFeedbackSectionSliceVariation,
+      TestimonialFeedbackSectionSliceDefault,
       WrapperSectionSlice,
       WrapperSectionSliceDefaultPrimary,
       WrapperSectionSliceHeroBannerPrimary,

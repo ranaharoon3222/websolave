@@ -1,6 +1,8 @@
+import RichText from "@/components/prismic/RichText";
+import { PrismicNextImage } from "@prismicio/next";
 import Slider from "react-slick";
 
-const Testimonial = () => {
+const Testimonial = ({ slice }) => {
   const testimonials = [
     {
       id: 1,
@@ -37,14 +39,20 @@ const Testimonial = () => {
   return (
     <>
       <Slider {...settings}>
-        {testimonials.map((testimonial) => (
-          <div className="item" key={testimonial.id}>
+        {slice.items.map((testimonial) => (
+          <div className="item" key={testimonial.name}>
             <div className="feedback-block-twelve">
               <div className="icon rounded-circle d-flex align-items-center justify-content-center">
-                <img src={testimonial.icon} alt="icon" />
+                <PrismicNextImage field={testimonial.icon} />
               </div>
-              <p className="tx-dark mt-35 lg-mt-20">{testimonial.feedback}</p>
-              <p className="tx-dark fs-16 fw-500">{testimonial.name}</p>
+              <RichText
+                paragraphClassName="tx-dark mt-35 lg-mt-20"
+                field={testimonial.feedback}
+              />
+              <RichText
+                paragraphClassName="tx-dark fs-16 fw-500"
+                field={testimonial.name}
+              />
             </div>
           </div>
         ))}
