@@ -1,4 +1,6 @@
 import FeatureOne from "@/components/home-page/home-10/FeatureOne";
+import RichText from "@/components/prismic/RichText";
+import { PrismicNextImage } from "@prismicio/next";
 
 /**
  * @typedef {import("@prismicio/client").Content.FeatureOneSectionSlice} FeatureOneSectionSlice
@@ -11,13 +13,39 @@ const FeatureOneSection = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="fancy-feature-one pt-170 lg-pt-140">
-        <div className="container">
-          <div className="row align-items-center">
-            <FeatureOne slice={slice} />
+      {slice.variation === "default" && (
+        <div className="fancy-feature-one pt-170 lg-pt-140">
+          <div className="container">
+            <div className="row align-items-center">
+              <FeatureOne slice={slice} />
+            </div>
           </div>
         </div>
-      </div>
+      )}
+      {slice.variation === "testimonialHero" && (
+        <div className="fancy-feature-fiftyOne position-relative mt-200">
+          <div className="container">
+            <div className="row">
+              <div className="col-xl-7 col-md-6" data-aos="fade-right">
+                <div className="title-style-five mb-65 lg-mb-20">
+                  <RichText
+                    paragraphClassName="sc-title-two fst-italic position-relative"
+                    field={slice.primary.top_text}
+                  />
+                  <RichText
+                    heading2="main-title fw-500 tx-dark"
+                    field={slice.primary.title}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <PrismicNextImage
+            field={slice.primary.image}
+            className="lazy-img shapes shape-two"
+          />
+        </div>
+      )}
     </section>
   );
 };

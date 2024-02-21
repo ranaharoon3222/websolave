@@ -769,9 +769,60 @@ export type FeatureOneSectionSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *FeatureOneSection → Primary*
+ */
+export interface FeatureOneSectionSliceTestimonialHeroPrimary {
+  /**
+   * Top Text field in *FeatureOneSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_one_section.primary.top_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  top_text: prismic.RichTextField;
+
+  /**
+   * Title field in *FeatureOneSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_one_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Image field in *FeatureOneSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_one_section.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * TestimonialHero variation for FeatureOneSection Slice
+ *
+ * - **API ID**: `testimonialHero`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeatureOneSectionSliceTestimonialHero =
+  prismic.SharedSliceVariation<
+    "testimonialHero",
+    Simplify<FeatureOneSectionSliceTestimonialHeroPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *FeatureOneSection*
  */
-type FeatureOneSectionSliceVariation = FeatureOneSectionSliceDefault;
+type FeatureOneSectionSliceVariation =
+  | FeatureOneSectionSliceDefault
+  | FeatureOneSectionSliceTestimonialHero;
 
 /**
  * FeatureOneSection Shared Slice
@@ -1933,8 +1984,10 @@ declare module "@prismicio/client" {
       FancyShortBannerSectionSliceDefault,
       FeatureOneSectionSlice,
       FeatureOneSectionSliceDefaultPrimary,
+      FeatureOneSectionSliceTestimonialHeroPrimary,
       FeatureOneSectionSliceVariation,
       FeatureOneSectionSliceDefault,
+      FeatureOneSectionSliceTestimonialHero,
       FeatureTwoSectionSlice,
       FeatureTwoSectionSliceDefaultPrimary,
       FeatureTwoSectionSliceDefaultItem,
