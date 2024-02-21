@@ -149,6 +149,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PagesDocumentDataSlicesSlice =
+  | ColumnTextSectionSlice
   | CounterTwoSectionSlice
   | FancyShortBannerSectionSlice
   | WrapperSectionSlice
@@ -354,6 +355,126 @@ export type AllDocumentTypes =
   | PagesDocument
   | ProjectsDocument
   | ServicesDocument;
+
+/**
+ * Primary content in *ColumnTextSection → Primary*
+ */
+export interface ColumnTextSectionSliceDefaultPrimary {
+  /**
+   * Top Text field in *ColumnTextSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.primary.top_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  top_text: prismic.RichTextField;
+
+  /**
+   * Title field in *ColumnTextSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Sub Title field in *ColumnTextSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.primary.sub_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ColumnTextSection → Items*
+ */
+export interface ColumnTextSectionSliceDefaultItem {
+  /**
+   * Icon field in *ColumnTextSection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ColumnTextSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *ColumnTextSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Data Aos field in *ColumnTextSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.items[].data_aos
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  data_aos: prismic.RichTextField;
+
+  /**
+   * Data Delay field in *ColumnTextSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.items[].data_delay
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  data_delay: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ColumnTextSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ColumnTextSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ColumnTextSectionSliceDefaultPrimary>,
+  Simplify<ColumnTextSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ColumnTextSection*
+ */
+type ColumnTextSectionSliceVariation = ColumnTextSectionSliceDefault;
+
+/**
+ * ColumnTextSection Shared Slice
+ *
+ * - **API ID**: `column_text_section`
+ * - **Description**: ColumnTextSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ColumnTextSectionSlice = prismic.SharedSlice<
+  "column_text_section",
+  ColumnTextSectionSliceVariation
+>;
 
 /**
  * Primary content in *CounterTwoSection → Items*
@@ -1334,12 +1455,106 @@ export type ServiceBoxSliceBlogSectionOne = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ServiceBox → Primary*
+ */
+export interface ServiceBoxSliceAboutTeamPrimary {
+  /**
+   * Top Text field in *ServiceBox → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.primary.top_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  top_text: prismic.RichTextField;
+
+  /**
+   * Title field in *ServiceBox → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Button Link field in *ServiceBox → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Label field in *ServiceBox → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ServiceBox → Items*
+ */
+export interface ServiceBoxSliceAboutTeamItem {
+  /**
+   * Image field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Name field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Profession field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].profession
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  profession: prismic.RichTextField;
+}
+
+/**
+ * About Team variation for ServiceBox Slice
+ *
+ * - **API ID**: `aboutTeam`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceBoxSliceAboutTeam = prismic.SharedSliceVariation<
+  "aboutTeam",
+  Simplify<ServiceBoxSliceAboutTeamPrimary>,
+  Simplify<ServiceBoxSliceAboutTeamItem>
+>;
+
+/**
  * Slice variation for *ServiceBox*
  */
 type ServiceBoxSliceVariation =
   | ServiceBoxSliceDefault
   | ServiceBoxSliceFeaturesWrapper
-  | ServiceBoxSliceBlogSectionOne;
+  | ServiceBoxSliceBlogSectionOne
+  | ServiceBoxSliceAboutTeam;
 
 /**
  * ServiceBox Shared Slice
@@ -1496,6 +1711,11 @@ declare module "@prismicio/client" {
       ServicesDocumentData,
       ServicesDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ColumnTextSectionSlice,
+      ColumnTextSectionSliceDefaultPrimary,
+      ColumnTextSectionSliceDefaultItem,
+      ColumnTextSectionSliceVariation,
+      ColumnTextSectionSliceDefault,
       CounterTwoSectionSlice,
       CounterTwoSectionSliceDefaultItem,
       CounterTwoSectionSliceVariation,
@@ -1531,10 +1751,13 @@ declare module "@prismicio/client" {
       ServiceBoxSliceFeaturesWrapperItem,
       ServiceBoxSliceBlogSectionOnePrimary,
       ServiceBoxSliceBlogSectionOneItem,
+      ServiceBoxSliceAboutTeamPrimary,
+      ServiceBoxSliceAboutTeamItem,
       ServiceBoxSliceVariation,
       ServiceBoxSliceDefault,
       ServiceBoxSliceFeaturesWrapper,
       ServiceBoxSliceBlogSectionOne,
+      ServiceBoxSliceAboutTeam,
       WrapperSectionSlice,
       WrapperSectionSliceDefaultPrimary,
       WrapperSectionSliceHeroBannerPrimary,

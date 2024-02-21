@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import RichText from "../prismic/RichText";
+import { PrismicNextImage } from "@prismicio/next";
 
 const blocksData = [
   {
@@ -37,27 +39,36 @@ const blocksData = [
   // Add more blocks as needed
 ];
 
-const Block = () => {
+const Block = ({ slice }) => {
   return (
     <>
-      {blocksData.map((block) => (
-        <div className="col-sm-6" key={block.id}>
+      {slice.items.map((block) => (
+        <div className="col-sm-6" key={block.title}>
           <div
             className="card-style-twentyFour bg-white mt-30"
-            data-aos={block.dataAos}
-            data-aos-delay={block.dataAosDelay}
+            data-aos={block.data_aos}
+            data-aos-delay={block.data_aos_delay}
           >
             <div className="icon">
-              <Image
+              <PrismicNextImage
+                field={block.icon}
+                className="lazy-img mh-100"
+              />
+              {/* <Image
                 width={45}
                 height={42}
                 src={block.iconSrc}
                 alt="icon"
                 className="lazy-img mh-100"
-              />
+              /> */}
             </div>
-            <h4 className="fw-bold tx-dark mt-30 mb-15">{block.title}</h4>
-            <p className="fs-18">{block.content}</p>
+            <RichText
+              heading4={"fw-bold tx-dark mt-30 mb-15"}
+              field={block.title}
+            />
+            <RichText paragraphClassName={"fs-18"} field={block.description} />
+            {/* <h4 className="fw-bold tx-dark mt-30 mb-15">{block.title}</h4> */}
+            {/* <p className="fs-18">{block.content}</p> */}
           </div>
           {/* /.card-style-twentyFour */}
         </div>

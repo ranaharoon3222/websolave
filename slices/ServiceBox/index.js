@@ -1,3 +1,4 @@
+import Block from "@/components/about/Block";
 import Blog from "@/components/home-page/home-10/Blog";
 import FancyBlock2 from "@/components/home-page/home-10/FancyBlock2";
 import Services from "@/components/home-page/home-10/Services";
@@ -97,6 +98,13 @@ const ServiceBox = ({ slice }) => {
             {/* /.container */}
           </div>
           {/* /.bg-wrapper */}
+        </div>
+      )}
+      {slice.variation === "aboutFeaturesWrapper" && (
+        <div className="col-lg-7 ms-auto">
+          <div className="row gx-xxl-5">
+            <Block slice={slice} />
+          </div>
         </div>
       )}
     </section>

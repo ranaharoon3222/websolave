@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "column_text_section": {
+              "type": "SharedSlice"
+            },
             "counter_two_section": {
               "type": "SharedSlice"
             },
