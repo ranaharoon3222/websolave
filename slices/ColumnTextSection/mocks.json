@@ -126,5 +126,189 @@
 				]
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "serviceColumnText",
+		"primary": {
+			"top_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "WHY US?",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"sub_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading6",
+						"content": {
+							"text": "We helping our client to fullfill their needs with our expert.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Why choose Jano.",
+							"spans": [
+								{
+									"type": "em",
+									"start": 4,
+									"end": 10
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"question",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Duis dolor in deserunt ea excepteur sint non veniam pariatur qui magna eiusmod qui. Ipsum aliqua nostrud aliquip aliqua cillum. Laboris minim dolor eiusmod aliqua aliquip non laborum ea excepteur aliqua."
+									}
+								}
+							]
+						}
+					],
+					[
+						"answer",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Nisi elit non sunt aliquip. Cupidatat adipisicing laboris amet nulla eiusmod amet mollit excepteur. Fugiat ex proident do aliquip pariatur magna deserunt anim."
+									}
+								}
+							]
+						}
+					],
+					[
+						"faq_id",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Number",
+							"value": "1"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"question",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "lorem ipsum dolor",
+										"spans": []
+									},
+									"direction": "ltr"
+								}
+							]
+						}
+					],
+					[
+						"answer",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "lorem ipsum dolor",
+										"spans": []
+									},
+									"direction": "ltr"
+								}
+							]
+						}
+					],
+					[
+						"faq_id",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Number",
+							"value": "2"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"faq_id",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Number",
+							"value": "3"
+						}
+					],
+					[
+						"answer",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "lorem ipsum odlor",
+										"spans": []
+									},
+									"direction": "ltr"
+								}
+							]
+						}
+					],
+					[
+						"question",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "lorem ipsum dolor",
+										"spans": []
+									},
+									"direction": "ltr"
+								}
+							]
+						}
+					]
+				]
+			}
+		]
 	}
 ]

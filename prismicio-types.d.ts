@@ -130,21 +130,48 @@ interface BlogDocumentData {
 export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
-interface HeaderDocumentData {}
+type NavigationDocumentDataSlicesSlice = NavigationItemSlice;
 
 /**
- * Header document from Prismic
+ * Content for Navigation documents
+ */
+interface NavigationDocumentData {
+  /**
+   * Name field in *Navigation*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Navigation*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<NavigationDocumentDataSlicesSlice>;
+}
+
+/**
+ * Navigation document from Prismic
  *
- * - **API ID**: `header`
- * - **Repeatable**: `false`
+ * - **API ID**: `navigation`
+ * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type HeaderDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<HeaderDocumentData>,
-    "header",
+export type NavigationDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<NavigationDocumentData>,
+    "navigation",
     Lang
   >;
 
@@ -351,7 +378,7 @@ export type ServicesDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | AboutUsDocument
   | BlogDocument
-  | HeaderDocument
+  | NavigationDocument
   | PagesDocument
   | ProjectsDocument
   | ServicesDocument;
@@ -460,9 +487,95 @@ export type ColumnTextSectionSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ColumnTextSection → Primary*
+ */
+export interface ColumnTextSectionSliceServiceColumnTextPrimary {
+  /**
+   * Top Text field in *ColumnTextSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.primary.top_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  top_text: prismic.RichTextField;
+
+  /**
+   * Title field in *ColumnTextSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Sub Title field in *ColumnTextSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.primary.sub_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ColumnTextSection → Items*
+ */
+export interface ColumnTextSectionSliceServiceColumnTextItem {
+  /**
+   * Question field in *ColumnTextSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.items[].question
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  question: prismic.RichTextField;
+
+  /**
+   * Answer field in *ColumnTextSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.items[].answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField;
+
+  /**
+   * Faq Id field in *ColumnTextSection → Items*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.items[].faq_id
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  faq_id: prismic.NumberField;
+}
+
+/**
+ * ServiceColumnText variation for ColumnTextSection Slice
+ *
+ * - **API ID**: `serviceColumnText`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ColumnTextSectionSliceServiceColumnText =
+  prismic.SharedSliceVariation<
+    "serviceColumnText",
+    Simplify<ColumnTextSectionSliceServiceColumnTextPrimary>,
+    Simplify<ColumnTextSectionSliceServiceColumnTextItem>
+  >;
+
+/**
  * Slice variation for *ColumnTextSection*
  */
-type ColumnTextSectionSliceVariation = ColumnTextSectionSliceDefault;
+type ColumnTextSectionSliceVariation =
+  | ColumnTextSectionSliceDefault
+  | ColumnTextSectionSliceServiceColumnText;
 
 /**
  * ColumnTextSection Shared Slice
@@ -1226,6 +1339,86 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *NavigationItem → Primary*
+ */
+export interface NavigationItemSliceDefaultPrimary {
+  /**
+   * Name field in *NavigationItem → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Link field in *NavigationItem → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *NavigationItem → Items*
+ */
+export interface NavigationItemSliceDefaultItem {
+  /**
+   * Child Name field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.items[].child_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  child_name: prismic.RichTextField;
+
+  /**
+   * Child Link field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.items[].child_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  child_link: prismic.LinkField;
+}
+
+/**
+ * Default variation for NavigationItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavigationItemSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NavigationItemSliceDefaultPrimary>,
+  Simplify<NavigationItemSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *NavigationItem*
+ */
+type NavigationItemSliceVariation = NavigationItemSliceDefault;
+
+/**
+ * NavigationItem Shared Slice
+ *
+ * - **API ID**: `navigation_item`
+ * - **Description**: NavigationItem
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavigationItemSlice = prismic.SharedSlice<
+  "navigation_item",
+  NavigationItemSliceVariation
+>;
+
+/**
  * Primary content in *ServiceBox → Items*
  */
 export interface ServiceBoxSliceDefaultItem {
@@ -1709,8 +1902,9 @@ declare module "@prismicio/client" {
       BlogDocument,
       BlogDocumentData,
       BlogDocumentDataSlicesSlice,
-      HeaderDocument,
-      HeaderDocumentData,
+      NavigationDocument,
+      NavigationDocumentData,
+      NavigationDocumentDataSlicesSlice,
       PagesDocument,
       PagesDocumentData,
       PagesDocumentDataSlicesSlice,
@@ -1724,8 +1918,11 @@ declare module "@prismicio/client" {
       ColumnTextSectionSlice,
       ColumnTextSectionSliceDefaultPrimary,
       ColumnTextSectionSliceDefaultItem,
+      ColumnTextSectionSliceServiceColumnTextPrimary,
+      ColumnTextSectionSliceServiceColumnTextItem,
       ColumnTextSectionSliceVariation,
       ColumnTextSectionSliceDefault,
+      ColumnTextSectionSliceServiceColumnText,
       CounterTwoSectionSlice,
       CounterTwoSectionSliceDefaultItem,
       CounterTwoSectionSliceVariation,
@@ -1756,6 +1953,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      NavigationItemSlice,
+      NavigationItemSliceDefaultPrimary,
+      NavigationItemSliceDefaultItem,
+      NavigationItemSliceVariation,
+      NavigationItemSliceDefault,
       ServiceBoxSlice,
       ServiceBoxSliceDefaultItem,
       ServiceBoxSliceFeaturesWrapperItem,

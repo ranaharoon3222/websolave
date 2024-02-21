@@ -1,4 +1,5 @@
 import React from "react";
+import RichText from "../prismic/RichText";
 
 const faqData = [
   {
@@ -22,33 +23,34 @@ const faqData = [
   // Add more FAQ items as needed
 ];
 
-const Faq4 = () => {
+const Faq4 = ({ slice }) => {
   return (
     <div className="accordion accordion-style-two" id="accordionOne">
-      {faqData.map((faq) => (
-        <div className="accordion-item" key={faq.id}>
-          <div className="accordion-header" id={`heading${faq.id}`}>
+      {slice.items.map((faq) => (
+        <div className="accordion-item" key={faq.faq_id}>
+          <div className="accordion-header" id={`heading${faq.faq_id}`}>
             <button
-              className={`accordion-button ${faq.id === 1 ? "" : "collapsed"}`}
+              className={`accordion-button ${faq.faq_id === 1 ? "" : "collapsed"}`}
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target={`#collapse${faq.id}`}
-              aria-expanded={faq.id === 1 ? "true" : "false"}
-              aria-controls={`collapse${faq.id}`}
+              data-bs-target={`#collapse${faq.faq_id}`}
+              aria-expanded={faq.faq_id === 1 ? "true" : "false"}
+              aria-controls={`collapse${faq.faq_id}`}
             >
-              {faq.question}
+              <RichText field={faq.question} />
             </button>
           </div>
           <div
-            id={`collapse${faq.id}`}
+            id={`collapse${faq.faq_id}`}
             className={`accordion-collapse collapse ${
-              faq.id === 1 ? "show" : ""
+              faq.faq_id === 1 ? "show" : ""
             }`}
-            aria-labelledby={`heading${faq.id}`}
+            aria-labelledby={`heading${faq.faq_id}`}
             data-bs-parent="#accordionOne"
           >
             <div className="accordion-body">
-              <p>{faq.answer}</p>
+              {/* <p>{faq.answer}</p> */}
+              <RichText field={faq.answer} />
             </div>
           </div>
         </div>
