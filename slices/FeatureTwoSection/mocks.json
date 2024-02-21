@@ -301,17 +301,6 @@
 					}
 				]
 			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Consequat qui irure nulla. Sint laborum nulla sunt. Ad consectetur sunt enim reprehenderit id irure magna laboris laborum consectetur ullamco."
-						}
-					}
-				]
-			},
 			"card_one_name": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -383,6 +372,17 @@
 				"__TYPE__": "FieldContent",
 				"value": "9",
 				"type": "Number"
+			},
+			"question": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Dolore anim in irure."
+						}
+					}
+				]
 			}
 		},
 		"items": [

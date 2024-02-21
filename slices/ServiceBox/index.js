@@ -3,6 +3,7 @@ import Blog from "@/components/home-page/home-10/Blog";
 import FancyBlock2 from "@/components/home-page/home-10/FancyBlock2";
 import Services from "@/components/home-page/home-10/Services";
 import RichText from "@/components/prismic/RichText";
+import Team5 from "@/components/team/Team5";
 import { PrismicNextLink } from "@prismicio/next";
 
 /**
@@ -100,11 +101,49 @@ const ServiceBox = ({ slice }) => {
           {/* /.bg-wrapper */}
         </div>
       )}
-      {slice.variation === "aboutFeaturesWrapper" && (
-        <div className="col-lg-7 ms-auto">
-          <div className="row gx-xxl-5">
-            <Block slice={slice} />
+      {slice.variation === "aboutTeam" && (
+        <div className="team-section-four mt-150 lg-mt-90">
+          <div className="container">
+            <div className="row align-items-end">
+              <div className="col-xxl-6 col-md-7" data-aos="fade-right">
+                <div className="title-style-one text-center text-md-start">
+                  <RichText
+                    paragraphClassName={"sc-title text-uppercase"}
+                    field={slice.primary.top_text}
+                  />
+                  {/* <div className="sc-title text-uppercase">OUR TEAM</div> */}
+                  <RichText
+                    heading2={"main-title fw-bold tx-dark m0"}
+                    field={slice.primary.title}
+                  />
+
+                  {/* <h2 className="main-title fw-bold tx-dark m0">
+                    We’ve talented expert to help you
+                  </h2> */}
+                </div>{" "}
+                {/* /.title-style-one */}
+              </div>
+              <div
+                className="col-xxl-6 col-md-5 text-center text-md-end"
+                data-aos="fade-left"
+              >
+                <PrismicNextLink href={"#"} className="btn-one fw-500 sm-mt-30">
+                  {slice.primary.button_label}
+                </PrismicNextLink>
+                {/* <a href="#" className="btn-one fw-500 sm-mt-30">
+                  View full team
+                </a> */}
+              </div>
+            </div>{" "}
+            {/* /.row */}
+            <div className="wrapper border-bottom pt-80 lg-pt-50">
+              <div className="row gx-xxl-5">
+                <Team5 slice={slice} />
+              </div>
+              {/* /.row */}
+            </div>
           </div>
+          {/* /.container */}
         </div>
       )}
     </section>

@@ -923,10 +923,10 @@ export interface FeatureTwoSectionSliceAboutFeatureOnePrimary {
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: feature_two_section.primary.description
+   * - **API ID Path**: feature_two_section.primary.question
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  description: prismic.RichTextField;
+  question: prismic.RichTextField;
 
   /**
    * Card One Name field in *FeatureTwoSection → Primary*
@@ -1524,14 +1524,24 @@ export interface ServiceBoxSliceAboutTeamItem {
   name: prismic.RichTextField;
 
   /**
-   * Profession field in *ServiceBox → Items*
+   * Role field in *ServiceBox → Items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: service_box.items[].profession
+   * - **API ID Path**: service_box.items[].role
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  profession: prismic.RichTextField;
+  role: prismic.RichTextField;
+
+  /**
+   * Data Delay field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].data_delay
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  data_delay: prismic.KeyTextField;
 }
 
 /**
