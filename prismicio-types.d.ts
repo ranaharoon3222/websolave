@@ -4,6 +4,71 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type AboutUsDocumentDataSlicesSlice = WrapperSectionSlice;
+
+/**
+ * Content for About Us documents
+ */
+interface AboutUsDocumentData {
+  /**
+   * Slice Zone field in *About Us*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AboutUsDocumentDataSlicesSlice> /**
+   * Meta Description field in *About Us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: about_us.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *About Us*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *About Us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: about_us.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * About Us document from Prismic
+ *
+ * - **API ID**: `about_us`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AboutUsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<AboutUsDocumentData>,
+    "about_us",
+    Lang
+  >;
+
 type BlogDocumentDataSlicesSlice = never;
 
 /**
@@ -282,6 +347,7 @@ export type ServicesDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | AboutUsDocument
   | BlogDocument
   | HeaderDocument
   | PagesDocument
@@ -1140,9 +1206,49 @@ export type WrapperSectionSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *WrapperSection → Primary*
+ */
+export interface WrapperSectionSliceHeroBannerPrimary {
+  /**
+   * Title field in *WrapperSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: wrapper_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Sub Title field in *WrapperSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: wrapper_section.primary.sub_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_title: prismic.RichTextField;
+}
+
+/**
+ * Hero Banner variation for WrapperSection Slice
+ *
+ * - **API ID**: `heroBanner`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WrapperSectionSliceHeroBanner = prismic.SharedSliceVariation<
+  "heroBanner",
+  Simplify<WrapperSectionSliceHeroBannerPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *WrapperSection*
  */
-type WrapperSectionSliceVariation = WrapperSectionSliceDefault;
+type WrapperSectionSliceVariation =
+  | WrapperSectionSliceDefault
+  | WrapperSectionSliceHeroBanner;
 
 /**
  * WrapperSection Shared Slice
@@ -1166,6 +1272,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AboutUsDocument,
+      AboutUsDocumentData,
+      AboutUsDocumentDataSlicesSlice,
       BlogDocument,
       BlogDocumentData,
       BlogDocumentDataSlicesSlice,
@@ -1216,8 +1325,10 @@ declare module "@prismicio/client" {
       ServiceBoxSliceBlogSectionOne,
       WrapperSectionSlice,
       WrapperSectionSliceDefaultPrimary,
+      WrapperSectionSliceHeroBannerPrimary,
       WrapperSectionSliceVariation,
       WrapperSectionSliceDefault,
+      WrapperSectionSliceHeroBanner,
     };
   }
 }

@@ -1,3 +1,4 @@
+import Hero from "@/components/about/Hero";
 import FancyBanner from "@/components/home-page/home-10/FancyBanner";
 
 /**
@@ -11,7 +12,8 @@ const WrapperSection = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <FancyBanner slice={slice} />
+      {slice.variation === "default" && <FancyBanner slice={slice} />}
+      {slice.variation === "heroBanner" && <Hero slice={slice} />}
     </section>
   );
 };
