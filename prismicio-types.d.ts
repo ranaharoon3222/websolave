@@ -1945,6 +1945,186 @@ export type TestimonialFeedbackSectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TestimonialFeedbackTwo → Primary*
+ */
+export interface TestimonialFeedbackTwoSliceDefaultPrimary {
+  /**
+   * Icon field in *TestimonialFeedbackTwo → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.primary.icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Icon Bg field in *TestimonialFeedbackTwo → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.primary.icon_bg
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  icon_bg: prismic.KeyTextField;
+
+  /**
+   * Title field in *TestimonialFeedbackTwo → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Image One field in *TestimonialFeedbackTwo → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.primary.image_one
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_one: prismic.ImageField<never>;
+
+  /**
+   * Image Two field in *TestimonialFeedbackTwo → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.primary.image_two
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_two: prismic.ImageField<never>;
+
+  /**
+   * Image Three field in *TestimonialFeedbackTwo → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.primary.image_three
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_three: prismic.ImageField<never>;
+
+  /**
+   * Image Four field in *TestimonialFeedbackTwo → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.primary.image_four
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_four: prismic.ImageField<never>;
+
+  /**
+   * Image Five field in *TestimonialFeedbackTwo → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.primary.image_five
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_five: prismic.ImageField<never>;
+
+  /**
+   * Image Six field in *TestimonialFeedbackTwo → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.primary.image_six
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_six: prismic.ImageField<never>;
+
+  /**
+   * Text Bg field in *TestimonialFeedbackTwo → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.primary.text_bg
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text_bg: prismic.KeyTextField;
+
+  /**
+   * Bg Image field in *TestimonialFeedbackTwo → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.primary.bg_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bg_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *TestimonialFeedbackTwo → Items*
+ */
+export interface TestimonialFeedbackTwoSliceDefaultItem {
+  /**
+   * Text field in *TestimonialFeedbackTwo → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Name field in *TestimonialFeedbackTwo → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Role field in *TestimonialFeedbackTwo → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_feedback_two.items[].role
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  role: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TestimonialFeedbackTwo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialFeedbackTwoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestimonialFeedbackTwoSliceDefaultPrimary>,
+  Simplify<TestimonialFeedbackTwoSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *TestimonialFeedbackTwo*
+ */
+type TestimonialFeedbackTwoSliceVariation = TestimonialFeedbackTwoSliceDefault;
+
+/**
+ * TestimonialFeedbackTwo Shared Slice
+ *
+ * - **API ID**: `testimonial_feedback_two`
+ * - **Description**: TestimonialFeedbackTwo
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialFeedbackTwoSlice = prismic.SharedSlice<
+  "testimonial_feedback_two",
+  TestimonialFeedbackTwoSliceVariation
+>;
+
+/**
  * Primary content in *WrapperSection → Primary*
  */
 export interface WrapperSectionSliceDefaultPrimary {
@@ -2150,6 +2330,11 @@ declare module "@prismicio/client" {
       TestimonialFeedbackSectionSliceDefaultItem,
       TestimonialFeedbackSectionSliceVariation,
       TestimonialFeedbackSectionSliceDefault,
+      TestimonialFeedbackTwoSlice,
+      TestimonialFeedbackTwoSliceDefaultPrimary,
+      TestimonialFeedbackTwoSliceDefaultItem,
+      TestimonialFeedbackTwoSliceVariation,
+      TestimonialFeedbackTwoSliceDefault,
       WrapperSectionSlice,
       WrapperSectionSliceDefaultPrimary,
       WrapperSectionSliceHeroBannerPrimary,

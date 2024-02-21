@@ -17,5 +17,6 @@ export const components = {
   testimonial_feedback_section: dynamic(
     () => import("./TestimonialFeedbackSection"),
   ),
+  testimonial_feedback_two: dynamic(() => import("./TestimonialFeedbackTwo")),
   wrapper_section: dynamic(() => import("./WrapperSection")),
 };

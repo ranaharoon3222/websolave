@@ -1,7 +1,8 @@
+import RichText from "@/components/prismic/RichText";
 import React, { useRef } from "react";
 import Slider from "react-slick";
 
-const Testimonial = () => {
+const Testimonial = ({ slice }) => {
   const sliderRef = useRef();
 
   const settings = {
@@ -45,12 +46,15 @@ const Testimonial = () => {
     <>
       <div className="feedback_slider_two">
         <Slider ref={sliderRef} {...settings} arrows={false}>
-          {testimonials.map((testimonial) => (
-            <div className="item" key={testimonial.id}>
+          {slice.items.map((testimonial) => (
+            <div className="item" key={testimonial.name}>
               <div className="feedback-block-two text-center">
-                <p className="mb-80 lg-mb-40">{testimonial.text}</p>
-                <h4 className="m0">{testimonial.name}</h4>
-                <span className="opacity-75">{testimonial.role}</span>
+                <RichText
+                  paragraphClassName="mb-80 lg-mb-40"
+                  field={testimonial.text}
+                />
+                <RichText heading4="m0" field={testimonial.name} />
+                <RichText em="opacity-75" field={testimonial.role} />
               </div>
               {/* /.feedback-block-two */}
             </div>
