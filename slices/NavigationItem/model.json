@@ -49,6 +49,51 @@
           }
         }
       }
+    },
+    {
+      "id": "footer",
+      "name": "Footer",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "classes": {
+          "type": "Text",
+          "config": {
+            "label": "Classes",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "child_name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Child Name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "child_link": {
+          "type": "Link",
+          "config": {
+            "label": "Child Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
     }
   ]
 }

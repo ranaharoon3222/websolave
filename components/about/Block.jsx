@@ -42,8 +42,8 @@ const blocksData = [
 const Block = ({ slice }) => {
   return (
     <>
-      {slice.items.map((block) => (
-        <div className="col-sm-6" key={block.title}>
+      {slice.items.map((block, index) => (
+        <div className="col-sm-6" key={index}>
           <div
             className="card-style-twentyFour bg-white mt-30"
             data-aos={block.data_aos}

@@ -37,8 +37,8 @@ const teamMembers = [
 const Team5 = ({ slice }) => {
   return (
     <>
-      {slice.items.map((member) => (
-        <div className="col-lg-3 col-sm-6" key={member.name}>
+      {slice.items.map((member, index) => (
+        <div className="col-lg-3 col-sm-6" key={index}>
           <div
             className="team-block-three position-relative pb-40 lg-pb-30"
             data-aos="fade-up"

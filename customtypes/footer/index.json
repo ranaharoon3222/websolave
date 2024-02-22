@@ -1,0 +1,102 @@
+{
+  "format": "custom",
+  "id": "footer",
+  "label": "Footer",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        }
+      },
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "address": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Address",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "email": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Email",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "social_links": {
+        "type": "Group",
+        "config": {
+          "label": "Social Links",
+          "repeat": true,
+          "fields": {
+            "icon_link": {
+              "type": "Link",
+              "config": {
+                "label": "Icon Link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "icon_source": {
+              "type": "Text",
+              "config": {
+                "label": "Icon Source",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "email_link": {
+        "type": "Link",
+        "config": {
+          "label": "Email Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "number_link": {
+        "type": "Link",
+        "config": {
+          "label": "Number Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "number": {
+        "type": "Text",
+        "config": {
+          "label": "Number",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "navigation_item": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

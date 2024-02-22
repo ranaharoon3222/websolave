@@ -130,6 +130,138 @@ interface BlogDocumentData {
 export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
+/**
+ * Item in *Footer → Social Links*
+ */
+export interface FooterDocumentDataSocialLinksItem {
+  /**
+   * Icon Link field in *Footer → Social Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.social_links[].icon_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  icon_link: prismic.LinkField;
+
+  /**
+   * Icon Source field in *Footer → Social Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.social_links[].icon_source
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  icon_source: prismic.KeyTextField;
+}
+
+type FooterDocumentDataSlicesSlice = NavigationItemSlice;
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Logo field in *Footer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Address field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.address
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  address: prismic.RichTextField;
+
+  /**
+   * Email field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  email: prismic.RichTextField;
+
+  /**
+   * Social Links field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.social_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  social_links: prismic.GroupField<Simplify<FooterDocumentDataSocialLinksItem>>;
+
+  /**
+   * Email Link field in *Footer*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.email_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  email_link: prismic.LinkField;
+
+  /**
+   * Number Link field in *Footer*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.number_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  number_link: prismic.LinkField;
+
+  /**
+   * Number field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.number
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  number: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Footer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice>;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<FooterDocumentData>, "footer", Lang>;
+
 type NavigationDocumentDataSlicesSlice = NavigationItemSlice;
 
 /**
@@ -146,6 +278,39 @@ interface NavigationDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   name: prismic.RichTextField;
+
+  /**
+   * Logo field in *Navigation*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Button Link field in *Navigation*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.button_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Label field in *Navigation*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.button_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
 
   /**
    * Slice Zone field in *Navigation*
@@ -378,6 +543,7 @@ export type ServicesDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | AboutUsDocument
   | BlogDocument
+  | FooterDocument
   | NavigationDocument
   | PagesDocument
   | ProjectsDocument
@@ -1453,9 +1619,74 @@ export type NavigationItemSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *NavigationItem → Primary*
+ */
+export interface NavigationItemSliceFooterPrimary {
+  /**
+   * Name field in *NavigationItem → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Classes field in *NavigationItem → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.primary.classes
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  classes: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *NavigationItem → Items*
+ */
+export interface NavigationItemSliceFooterItem {
+  /**
+   * Child Name field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.items[].child_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  child_name: prismic.RichTextField;
+
+  /**
+   * Child Link field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.items[].child_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  child_link: prismic.LinkField;
+}
+
+/**
+ * Footer variation for NavigationItem Slice
+ *
+ * - **API ID**: `footer`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavigationItemSliceFooter = prismic.SharedSliceVariation<
+  "footer",
+  Simplify<NavigationItemSliceFooterPrimary>,
+  Simplify<NavigationItemSliceFooterItem>
+>;
+
+/**
  * Slice variation for *NavigationItem*
  */
-type NavigationItemSliceVariation = NavigationItemSliceDefault;
+type NavigationItemSliceVariation =
+  | NavigationItemSliceDefault
+  | NavigationItemSliceFooter;
 
 /**
  * NavigationItem Shared Slice
@@ -2255,6 +2486,10 @@ declare module "@prismicio/client" {
       BlogDocument,
       BlogDocumentData,
       BlogDocumentDataSlicesSlice,
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataSocialLinksItem,
+      FooterDocumentDataSlicesSlice,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataSlicesSlice,
@@ -2311,8 +2546,11 @@ declare module "@prismicio/client" {
       NavigationItemSlice,
       NavigationItemSliceDefaultPrimary,
       NavigationItemSliceDefaultItem,
+      NavigationItemSliceFooterPrimary,
+      NavigationItemSliceFooterItem,
       NavigationItemSliceVariation,
       NavigationItemSliceDefault,
+      NavigationItemSliceFooter,
       ServiceBoxSlice,
       ServiceBoxSliceDefaultItem,
       ServiceBoxSliceFeaturesWrapperItem,

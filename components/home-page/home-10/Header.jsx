@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import MainMenu from "../../header/MainMenu";
+// import { Navigation } from "../../header/MainMenu";
 import Link from "next/link";
 import Image from "next/image";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
-const Header = () => {
+const Header = ({ navigation }) => {
   const [navbar, setNavbar] = useState(false);
 
   const changeBackground = () => {
@@ -31,24 +33,31 @@ const Header = () => {
         <div className="d-flex align-items-center justify-content-between">
           <div className="logo order-lg-0">
             <Link href="/" className="d-block">
-              <Image
+              <PrismicNextImage field={navigation.data.logo} />
+              {/* <Image
                 src="/images/logo/logo_01.png"
                 alt="logo"
                 width={95}
                 height={30}
-              />
+              /> */}
             </Link>
           </div>
           <div className="right-widget ms-auto d-flex align-items-center order-lg-3">
-            <Link
+            <PrismicNextLink
+              field={navigation.data.button_link}
+              className="contact-btn-one fs-16 fw-500 text-white tran3s d-none d-lg-block"
+            >
+              {navigation.data.button_label}
+            </PrismicNextLink>
+            {/* <Link
               href="/contact/contact-v2"
               className="contact-btn-one fs-16 fw-500 text-white tran3s d-none d-lg-block"
             >
               Contact us
-            </Link>
+            </Link> */}
           </div>{" "}
           {/* /.right-widget */}
-          <MainMenu />
+          <MainMenu navigation={navigation} />
         </div>
       </div>
       {/* /.inner-content */}

@@ -4,10 +4,12 @@ import { createClient } from "../prismicio";
 import { components } from "../slices/index";
 import Header from "@/components/home-page/home-10/Header";
 import Footer from "@/components/home-page/home-10/Footer";
+import MainMenu from "@/components/header/MainMenu";
 // import Head from 'next/head';
 // import { isFilled } from '@prismicio/client';
 
-const Page = ({ page }) => {
+const Page = ({ navigation, page, footer }) => {
+  // console.log(navigation);
   return (
     <>
       {/* <Head>
@@ -16,22 +18,23 @@ const Page = ({ page }) => {
           <meta name='description' content={page.data.meta_description} />
         ) : null}
       </Head> */}
-      <Header />
+      <Header navigation={navigation} />
       <SliceZone slices={page.data.slices} components={components} />
       <div className="footer-style-one theme-basic-footer position-relative">
         <div className="shapes shape-one" />
         <div className="container">
           <div className="inner-wrapper">
-            <Footer />
+            <Footer footer={footer} />
             <div className="bottom-footer">
               <p className="copyright text-center m0">
                 © {new Date().getFullYear()}
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://themeforest.net/user/ib-themes"
+                  href="https://websolave.com"
+                  className="ml-5"
                 >
-                  ib-themes
+                  websolave. All rights reserved
                 </a>
               </p>
             </div>
@@ -47,11 +50,16 @@ export default Page;
 
 export async function getServerSideProps({ params, previewData }) {
   const client = createClient({ previewData });
-  const page = await client.getByUID("pages", params.uid);
-  //   const settings = await client.getByUID('settings', 'settings');
+  // Fetching the required data directly
+  const { uid } = params;
+  const navigation = await client.getByUID("navigation", "header");
+  const footer = await client.getByUID("footer", "footer");
+  const page = await client.getByUID("pages", uid);
   return {
     props: {
+      navigation,
       page,
+      footer,
     },
   };
 }
