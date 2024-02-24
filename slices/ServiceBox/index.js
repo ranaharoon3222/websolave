@@ -1,4 +1,9 @@
 import Block from "@/components/about/Block";
+import Blog2 from "@/components/blog/Blog2";
+import Category from "@/components/blog/Category";
+import Pagination from "@/components/blog/Pagination";
+import RecentPost from "@/components/blog/RecentPost";
+import SearchBox from "@/components/blog/SearchBox";
 import Blog from "@/components/home-page/home-10/Blog";
 import FancyBlock2 from "@/components/home-page/home-10/FancyBlock2";
 import Services from "@/components/home-page/home-10/Services";
@@ -7,13 +12,20 @@ import Block2 from "@/components/services/Block2";
 import Team5 from "@/components/team/Team5";
 import { PrismicNextLink } from "@prismicio/next";
 import Image from "next/image";
-
+import { useState } from "react";
 /**
  * @typedef {import("@prismicio/client").Content.ServiceBoxSlice} ServiceBoxSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<ServiceBoxSlice>} ServiceBoxProps
  * @param {ServiceBoxProps}
  */
 const ServiceBox = ({ slice }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 6; // Number of posts to display per page
+  const blogPosts = slice.items; // Array of your blog posts
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -156,6 +168,38 @@ const ServiceBox = ({ slice }) => {
             </div>
           </div>{" "}
           {/* /.container */}
+        </div>
+      )}
+      {slice.variation === "blogPostSection" && (
+        <div className="blog-section-five mt-70 lg-mt-30">
+          <div className="container">
+            <div className="border-bottom pb-130 lg-pb-60">
+              <div className="row gx-xl-5">
+                <div className="col-lg-12">
+                  <div className="blog-meta-wrapper pe-xxl-5">
+                    <div className="row">
+                      <Blog2
+                        slice={slice}
+                        currentPage={currentPage}
+                        postsPerPage={postsPerPage}
+                      />
+                    </div>
+                  </div>
+                  {/* /.blog-meta-wrapper */}
+                  {blogPosts.length > postsPerPage && (
+                    <div className="page-pagination-one pt-15">
+                      <Pagination
+                        totalPosts={blogPosts.length}
+                        postsPerPage={postsPerPage}
+                        onPageChange={handlePageChange}
+                      />
+                    </div>
+                  )}
+                </div>
+                {/* End .col-lg-8 */}
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </section>

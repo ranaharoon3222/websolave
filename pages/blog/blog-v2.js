@@ -56,7 +56,7 @@ const GridWithSidebar = () => {
         <div className="container">
           <div className="border-bottom pb-130 lg-pb-60">
             <div className="row gx-xl-5">
-              <div className="col-lg-8">
+              <div className="col-lg-12">
                 <div className="blog-meta-wrapper pe-xxl-5">
                   <div className="row">
                     <Blog2 />

@@ -2414,6 +2414,74 @@ export type ServiceBoxSliceServicesFeatures = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ServiceBox → Items*
+ */
+export interface ServiceBoxSliceBlogPostSectionItem {
+  /**
+   * Icon field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Delay field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].delay
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  delay: prismic.NumberField;
+
+  /**
+   * Date field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].date
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  date: prismic.KeyTextField;
+
+  /**
+   * Button Label field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+}
+
+/**
+ * BlogPostSection variation for ServiceBox Slice
+ *
+ * - **API ID**: `blogPostSection`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceBoxSliceBlogPostSection = prismic.SharedSliceVariation<
+  "blogPostSection",
+  Record<string, never>,
+  Simplify<ServiceBoxSliceBlogPostSectionItem>
+>;
+
+/**
  * Slice variation for *ServiceBox*
  */
 type ServiceBoxSliceVariation =
@@ -2421,7 +2489,8 @@ type ServiceBoxSliceVariation =
   | ServiceBoxSliceFeaturesWrapper
   | ServiceBoxSliceBlogSectionOne
   | ServiceBoxSliceAboutTeam
-  | ServiceBoxSliceServicesFeatures;
+  | ServiceBoxSliceServicesFeatures
+  | ServiceBoxSliceBlogPostSection;
 
 /**
  * ServiceBox Shared Slice
@@ -2956,12 +3025,14 @@ declare module "@prismicio/client" {
       ServiceBoxSliceAboutTeamPrimary,
       ServiceBoxSliceAboutTeamItem,
       ServiceBoxSliceServicesFeaturesItem,
+      ServiceBoxSliceBlogPostSectionItem,
       ServiceBoxSliceVariation,
       ServiceBoxSliceDefault,
       ServiceBoxSliceFeaturesWrapper,
       ServiceBoxSliceBlogSectionOne,
       ServiceBoxSliceAboutTeam,
       ServiceBoxSliceServicesFeatures,
+      ServiceBoxSliceBlogPostSection,
       TestimonialFeedbackSectionSlice,
       TestimonialFeedbackSectionSliceDefaultPrimary,
       TestimonialFeedbackSectionSliceDefaultItem,

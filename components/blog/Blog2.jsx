@@ -1,27 +1,36 @@
 import Link from "next/link";
 import blogPosts from "../../data/blog";
 import Image from "next/image";
+import { PrismicNextImage } from "@prismicio/next";
+import RichText from "../prismic/RichText";
 
-const Blog = () => {
+const Blog = ({ slice, currentPage, postsPerPage }) => {
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+  const slicedData = slice.items.slice(startIndex, endIndex);
   return (
     <>
-      {blogPosts.slice(11, 19).map((post) => (
+      {slicedData.map((post, index) => (
         <div
-          className="col-md-6"
-          key={post.id}
+          className="col-md-4"
+          key={index}
           data-aos="fade-up"
           data-aos-delay={post.delay}
         >
           <article className="blog-meta-three mb-60 lg-mb-40">
             <figure className="post-img m0">
-              <Link href={`/blog/${post.id}`} className="w-100 d-block">
-                <Image
+              <Link href={`/blog/${post.id}`} className="w-100 d-block h-auto">
+                <PrismicNextImage
+                  field={post.icon}
+                  className="lazy-img w-100 tran4s h-auto"
+                />
+                {/* <Image
                   width={380}
                   height={280}
                   src={post.imageSrc}
                   alt="blog"
                   className="lazy-img w-100 tran4s"
-                />
+                /> */}
               </Link>
             </figure>
             <div className="post-data mt-30">
@@ -29,16 +38,17 @@ const Blog = () => {
                 {post.date}
               </div>
               <Link href={`/blog/${post.id}`} className="mt-10 mb-15">
-                <h4 className="tran3s blog-title fw-normal tx-dark">
-                  {post.title}
-                </h4>
+                <RichText
+                  heading4={"tran3s blog-title fw-normal tx-dark"}
+                  field={post.title}
+                />
               </Link>
               <div>
                 <Link
                   href={`/blog/${post.id}`}
                   className="read-btn-two fw-500 tran3s"
                 >
-                  Read More
+                  {post.button_label}
                 </Link>
               </div>
             </div>

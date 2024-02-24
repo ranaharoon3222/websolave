@@ -1,15 +1,25 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const Pagination = () => {
+const Pagination = ({ totalPosts, postsPerPage, onPageChange }) => {
   const [activePage, setActivePage] = useState(1);
-  const pageNumbers = [1, 2, 3, 4]; // replace with actual page numbers
+
+  // Calculate total number of pages
+  const totalPages = Math.ceil(totalPosts / postsPerPage);
+
+  // Generate an array of page numbers
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
 
   const handlePageClick = (pageNumber) => {
     setActivePage(pageNumber);
+    // Call onPageChange prop with the selected page number
+    onPageChange(pageNumber);
   };
 
   return (
-    <ul className="d-flex align-items-center style-none">
+    <ul className="d-flex align-items-center  justify-content-center style-none">
       {pageNumbers.map((pageNumber) => (
         <li
           className={pageNumber === activePage ? "active" : ""}
@@ -19,11 +29,6 @@ const Pagination = () => {
           {pageNumber}
         </li>
       ))}
-      <li>...</li>
-      <li>Last</li>
-      <li className="arrow">
-        <i className="bi bi-arrow-right" />
-      </li>
     </ul>
   );
 };
