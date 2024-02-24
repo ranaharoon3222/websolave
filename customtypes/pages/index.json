@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "contact_address": {
+              "type": "SharedSlice"
+            },
             "testimonial_feedback_two": {
               "type": "SharedSlice"
             },

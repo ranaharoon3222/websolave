@@ -341,6 +341,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PagesDocumentDataSlicesSlice =
+  | ContactAddressSlice
   | TestimonialFeedbackTwoSlice
   | TestimonialFeedbackSectionSlice
   | PortfolioCategorySectionSlice
@@ -824,6 +825,96 @@ type ColumnTextSectionSliceVariation =
 export type ColumnTextSectionSlice = prismic.SharedSlice<
   "column_text_section",
   ColumnTextSectionSliceVariation
+>;
+
+/**
+ * Primary content in *ContactAddress → Primary*
+ */
+export interface ContactAddressSliceDefaultPrimary {
+  /**
+   * Title field in *ContactAddress → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_address.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Sub Title field in *ContactAddress → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_address.primary.sub_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ContactAddress → Items*
+ */
+export interface ContactAddressSliceDefaultItem {
+  /**
+   * Icon field in *ContactAddress → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_address.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ContactAddress → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_address.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *ContactAddress → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_address.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ContactAddress Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactAddressSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactAddressSliceDefaultPrimary>,
+  Simplify<ContactAddressSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ContactAddress*
+ */
+type ContactAddressSliceVariation = ContactAddressSliceDefault;
+
+/**
+ * ContactAddress Shared Slice
+ *
+ * - **API ID**: `contact_address`
+ * - **Description**: ContactAddress
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactAddressSlice = prismic.SharedSlice<
+  "contact_address",
+  ContactAddressSliceVariation
 >;
 
 /**
@@ -2805,6 +2896,11 @@ declare module "@prismicio/client" {
       ColumnTextSectionSliceVariation,
       ColumnTextSectionSliceDefault,
       ColumnTextSectionSliceServiceColumnText,
+      ContactAddressSlice,
+      ContactAddressSliceDefaultPrimary,
+      ContactAddressSliceDefaultItem,
+      ContactAddressSliceVariation,
+      ContactAddressSliceDefault,
       CounterTwoSectionSlice,
       CounterTwoSectionSliceDefaultItem,
       CounterTwoSectionSliceVariation,

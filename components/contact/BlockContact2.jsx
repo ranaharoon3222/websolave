@@ -1,6 +1,8 @@
+import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
+import RichText from "../prismic/RichText";
 
-const BlockContact2 = () => {
+const BlockContact2 = ({ slice }) => {
   const addressBlocks = [
     {
       icon: "/images/icon/icon_161.svg",
@@ -40,14 +42,14 @@ const BlockContact2 = () => {
 
   return (
     <>
-      {addressBlocks.map((block, index) => (
+      {slice.items.map((block, index) => (
         <div className="address-block-three d-flex mb-70 lg-mb-40" key={index}>
           <div className="icon">
-            <Image width={30} height={30} src={block.icon} alt="icon" />
+            <PrismicNextImage field={block.icon} />
           </div>
           <div className="text">
-            <h5 className="title">{block.title}</h5>
-            <p>{block.content}</p>
+            <RichText heading5={"title"} field={block.title} />
+            <RichText hyperlink={"call webaddress"} field={block.content} />
           </div>
         </div>
       ))}
