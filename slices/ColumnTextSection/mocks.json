@@ -310,5 +310,77 @@
 				]
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "faqsQuestions",
+		"primary": {
+			"bottom_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Cillum sint labore id aliquip. Fugiat nostrud proident deserunt sit velit incididunt duis dolore non nisi anim."
+						}
+					}
+				]
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"button_label": {
+				"__TYPE__": "FieldContent",
+				"value": "composition",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"question",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Fugiat ad eu aute et aliquip veniam non amet ullamco elit elit incididunt nostrud ipsum. Voluptate sunt magna culpa amet quis aliqua esse et sint sunt Lorem cupidatat anim mollit. Ea tempor nisi pariatur cillum culpa fugiat ut exercitation laboris."
+									}
+								}
+							]
+						}
+					],
+					[
+						"answer",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Ad sunt consectetur ut pariatur est amet incididunt laborum eu non ad. Non dolore consequat magna. Labore deserunt ea mollit dolore aliqua magna sint culpa deserunt laboris culpa aliqua."
+									}
+								}
+							]
+						}
+					],
+					[
+						"faq_id",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "75",
+							"type": "Number"
+						}
+					]
+				]
+			}
+		]
 	}
 ]

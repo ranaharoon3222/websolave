@@ -809,11 +809,95 @@ export type ColumnTextSectionSliceServiceColumnText =
   >;
 
 /**
+ * Primary content in *ColumnTextSection → Primary*
+ */
+export interface ColumnTextSectionSliceFaqsQuestionsPrimary {
+  /**
+   * Bottom Text field in *ColumnTextSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.primary.bottom_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  bottom_text: prismic.RichTextField;
+
+  /**
+   * Button Link field in *ColumnTextSection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Label field in *ColumnTextSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ColumnTextSection → Items*
+ */
+export interface ColumnTextSectionSliceFaqsQuestionsItem {
+  /**
+   * Question field in *ColumnTextSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.items[].question
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  question: prismic.RichTextField;
+
+  /**
+   * Answer field in *ColumnTextSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.items[].answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField;
+
+  /**
+   * Faq Id field in *ColumnTextSection → Items*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: column_text_section.items[].faq_id
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  faq_id: prismic.NumberField;
+}
+
+/**
+ * FAQS Questions variation for ColumnTextSection Slice
+ *
+ * - **API ID**: `faqsQuestions`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ColumnTextSectionSliceFaqsQuestions = prismic.SharedSliceVariation<
+  "faqsQuestions",
+  Simplify<ColumnTextSectionSliceFaqsQuestionsPrimary>,
+  Simplify<ColumnTextSectionSliceFaqsQuestionsItem>
+>;
+
+/**
  * Slice variation for *ColumnTextSection*
  */
 type ColumnTextSectionSliceVariation =
   | ColumnTextSectionSliceDefault
-  | ColumnTextSectionSliceServiceColumnText;
+  | ColumnTextSectionSliceServiceColumnText
+  | ColumnTextSectionSliceFaqsQuestions;
 
 /**
  * ColumnTextSection Shared Slice
@@ -1146,11 +1230,50 @@ export type FeatureOneSectionSliceTestimonialHero =
   >;
 
 /**
+ * Primary content in *FeatureOneSection → Primary*
+ */
+export interface FeatureOneSectionSliceFaqsHeroPrimary {
+  /**
+   * Title field in *FeatureOneSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_one_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Top Text field in *FeatureOneSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_one_section.primary.top_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  top_text: prismic.RichTextField;
+}
+
+/**
+ * Faqs Hero variation for FeatureOneSection Slice
+ *
+ * - **API ID**: `faqsHero`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeatureOneSectionSliceFaqsHero = prismic.SharedSliceVariation<
+  "faqsHero",
+  Simplify<FeatureOneSectionSliceFaqsHeroPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *FeatureOneSection*
  */
 type FeatureOneSectionSliceVariation =
   | FeatureOneSectionSliceDefault
-  | FeatureOneSectionSliceTestimonialHero;
+  | FeatureOneSectionSliceTestimonialHero
+  | FeatureOneSectionSliceFaqsHero;
 
 /**
  * FeatureOneSection Shared Slice
@@ -2962,9 +3085,12 @@ declare module "@prismicio/client" {
       ColumnTextSectionSliceDefaultItem,
       ColumnTextSectionSliceServiceColumnTextPrimary,
       ColumnTextSectionSliceServiceColumnTextItem,
+      ColumnTextSectionSliceFaqsQuestionsPrimary,
+      ColumnTextSectionSliceFaqsQuestionsItem,
       ColumnTextSectionSliceVariation,
       ColumnTextSectionSliceDefault,
       ColumnTextSectionSliceServiceColumnText,
+      ColumnTextSectionSliceFaqsQuestions,
       ContactAddressSlice,
       ContactAddressSliceDefaultPrimary,
       ContactAddressSliceDefaultItem,
@@ -2981,9 +3107,11 @@ declare module "@prismicio/client" {
       FeatureOneSectionSlice,
       FeatureOneSectionSliceDefaultPrimary,
       FeatureOneSectionSliceTestimonialHeroPrimary,
+      FeatureOneSectionSliceFaqsHeroPrimary,
       FeatureOneSectionSliceVariation,
       FeatureOneSectionSliceDefault,
       FeatureOneSectionSliceTestimonialHero,
+      FeatureOneSectionSliceFaqsHero,
       FeatureTwoSectionSlice,
       FeatureTwoSectionSliceDefaultPrimary,
       FeatureTwoSectionSliceDefaultItem,

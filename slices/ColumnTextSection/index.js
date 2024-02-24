@@ -1,6 +1,8 @@
 import Block from "@/components/about/Block";
 import ColumnText from "@/components/about/ColumnText";
 import Faq4 from "@/components/faqs/Faq4";
+import RichText from "@/components/prismic/RichText";
+import { PrismicNextLink } from "@prismicio/next";
 import Image from "next/image";
 
 /**
@@ -125,6 +127,36 @@ const ColumnTextSection = ({ slice }) => {
             />
           </div>{" "}
           {/* /.bg-wrapper */}
+        </div>
+      )}
+      {slice.variation === "faqsQuestions" && (
+        <div className="fancy-feature-thirtyThree mt-100 lg-mt-80">
+          <div className="container">
+            <div className="border-bottom pb-100 lg-pb-70">
+              <div className="bg-wrapper position-relative" data-aos="fade-up">
+                <Faq4 slice={slice} />
+                <img
+                  src="/images/shape/shape_133.svg"
+                  alt="shape"
+                  className="lazy-img shapes shape-one"
+                />
+              </div>
+              {/* /.bg-wrapper */}
+
+              <div className="text-center  mt-80 lg-mt-50" data-aos="fade-up">
+                <RichText
+                  heading3={"fw-bold tx-dark mb-30"}
+                  field={slice.primary.bottom_text}
+                />
+                <PrismicNextLink
+                  href="/contact"
+                  className="btn-twentyOne fw-500 tran3s"
+                >
+                  {slice.primary.button_label}
+                </PrismicNextLink>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </section>

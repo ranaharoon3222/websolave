@@ -46,6 +46,27 @@ const FeatureOneSection = ({ slice }) => {
           />
         </div>
       )}
+      {slice.variation === "faqsHero" && (
+        <div className="fancy-feature-fiftyOne position-relative mt-200">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-7 text-center m-auto" data-aos="fade-up">
+                <div className="title-style-five">
+                  <RichText
+                    paragraphClassName="sc-title-two fst-italic position-relative d-inline-block"
+                    field={slice.primary.top_text}
+                  />
+                  <RichText
+                    heading2="main-title fw-500 tx-dark"
+                    field={slice.primary.title}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* /.container */}
+        </div>
+      )}
     </section>
   );
 };
