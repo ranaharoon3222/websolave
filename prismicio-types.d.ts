@@ -410,6 +410,73 @@ interface PagesDocumentData {
 export type PagesDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PagesDocumentData>, "pages", Lang>;
 
+type PortfolioDocumentDataSlicesSlice =
+  | PortfolioCategorySectionSlice
+  | FeatureOneSectionSlice;
+
+/**
+ * Content for Portfolio documents
+ */
+interface PortfolioDocumentData {
+  /**
+   * Slice Zone field in *Portfolio*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PortfolioDocumentDataSlicesSlice> /**
+   * Meta Description field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: portfolio.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Portfolio*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: portfolio.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Portfolio document from Prismic
+ *
+ * - **API ID**: `portfolio`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PortfolioDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<PortfolioDocumentData>,
+    "portfolio",
+    Lang
+  >;
+
 type ProjectsDocumentDataSlicesSlice = never;
 
 /**
@@ -546,6 +613,7 @@ export type AllDocumentTypes =
   | FooterDocument
   | NavigationDocument
   | PagesDocument
+  | PortfolioDocument
   | ProjectsDocument
   | ServicesDocument;
 
@@ -1701,6 +1769,82 @@ export type NavigationItemSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *PortfolioCategorySection → Items*
+ */
+export interface PortfolioCategorySectionSliceDefaultItem {
+  /**
+   * Category field in *PortfolioCategorySection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio_category_section.items[].category
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  category: prismic.KeyTextField;
+
+  /**
+   * Image field in *PortfolioCategorySection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio_category_section.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Name field in *PortfolioCategorySection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio_category_section.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Tag field in *PortfolioCategorySection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio_category_section.items[].tag
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tag: prismic.RichTextField;
+}
+
+/**
+ * Default variation for PortfolioCategorySection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PortfolioCategorySectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<PortfolioCategorySectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *PortfolioCategorySection*
+ */
+type PortfolioCategorySectionSliceVariation =
+  PortfolioCategorySectionSliceDefault;
+
+/**
+ * PortfolioCategorySection Shared Slice
+ *
+ * - **API ID**: `portfolio_category_section`
+ * - **Description**: PortfolioCategorySection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PortfolioCategorySectionSlice = prismic.SharedSlice<
+  "portfolio_category_section",
+  PortfolioCategorySectionSliceVariation
+>;
+
+/**
  * Primary content in *ServiceBox → Items*
  */
 export interface ServiceBoxSliceDefaultItem {
@@ -2496,6 +2640,9 @@ declare module "@prismicio/client" {
       PagesDocument,
       PagesDocumentData,
       PagesDocumentDataSlicesSlice,
+      PortfolioDocument,
+      PortfolioDocumentData,
+      PortfolioDocumentDataSlicesSlice,
       ProjectsDocument,
       ProjectsDocumentData,
       ProjectsDocumentDataSlicesSlice,
@@ -2551,6 +2698,10 @@ declare module "@prismicio/client" {
       NavigationItemSliceVariation,
       NavigationItemSliceDefault,
       NavigationItemSliceFooter,
+      PortfolioCategorySectionSlice,
+      PortfolioCategorySectionSliceDefaultItem,
+      PortfolioCategorySectionSliceVariation,
+      PortfolioCategorySectionSliceDefault,
       ServiceBoxSlice,
       ServiceBoxSliceDefaultItem,
       ServiceBoxSliceFeaturesWrapperItem,

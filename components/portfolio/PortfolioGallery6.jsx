@@ -4,15 +4,20 @@ import { Gallery, Item } from "react-photoswipe-gallery";
 import "photoswipe/dist/photoswipe.css";
 import Link from "next/link";
 import Image from "next/image";
+import RichText from "../prismic/RichText";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
-const PortfolioGallery6 = () => {
+const PortfolioGallery6 = ({ slice }) => {
   const [filter, setFilter] = useState("*");
 
+  // const filteredItems =
+  //   filter === "*"
+  //     ? items.slice(40, 45)
+  //     : items.slice(40, 45).filter((item) => item.category.includes(filter));
   const filteredItems =
     filter === "*"
-      ? items.slice(40, 45)
-      : items.slice(40, 45).filter((item) => item.category.includes(filter));
-
+      ? slice.items
+      : slice.items.filter((item) => item.category.includes(filter));
   return (
     <div className="portfolio-gallery-seven pt-30">
       <div className="container">
@@ -24,80 +29,72 @@ const PortfolioGallery6 = () => {
             All
           </li>
           <li
-            className={filter === "marketing" ? "is-checked" : ""}
-            onClick={() => setFilter("marketing")}
+            className={filter === "shopify" ? "is-checked" : ""}
+            onClick={() => setFilter("shopify")}
           >
-            Marketing
+            Shopify
           </li>
           <li
-            className={filter === "application" ? "is-checked" : ""}
-            onClick={() => setFilter("application")}
+            className={filter === "wordpress" ? "is-checked" : ""}
+            onClick={() => setFilter("wordpress")}
           >
-            Application
+            Wordpress
           </li>
           <li
-            className={filter === "design" ? "is-checked" : ""}
-            onClick={() => setFilter("design")}
+            className={filter === "react" ? "is-checked" : ""}
+            onClick={() => setFilter("react")}
           >
-            Design
-          </li>
-          <li
-            className={filter === "dev" ? "is-checked" : ""}
-            onClick={() => setFilter("dev")}
-          >
-            Development
+            React
           </li>
         </ul>
 
         <div className="row pt-90 lg-pt-50">
-          <Gallery>
-            {filteredItems.map((item) => (
-              <div key={item.id} className={`col-lg-12 ${item.category}`}>
-                <div className="portfolio-block-six mb-40">
-                  <div className="img-meta position-relative">
-                    <Image
-                      width={1320}
-                      height={600}
-                      src={item.image}
-                      alt="gallary"
-                      className="w-100 tran5s"
-                    />
-
-                    <Item
-                      original={item.image}
-                      thumbnail={item.image}
-                      width={1320}
-                      height={600}
-                    >
-                      {({ ref, open }) => (
-                        <span
-                          role="button"
-                          className="fancybox tran3s overlay-icon zoom-icon"
-                          title="Click for large view"
-                          ref={ref}
-                          onClick={open}
-                        >
-                          <i className="bi bi-plus"></i>
-                        </span>
-                      )}
-                    </Item>
-                    <div className="caption tran3s d-flex justify-content-end flex-column">
-                      <span className="tag">{item.tag}</span>
-                      <h6>
-                        <Link
-                          href={`/portfolio/${item.id}`}
-                          className="pj-title"
-                        >
-                          {item.name}
-                        </Link>
-                      </h6>
-                    </div>
-                    {/* <!-- /.caption --> */}
+          {/* <Gallery> */}
+          {filteredItems.map((item, index) => (
+            <div key={index} className={`col-lg-12 ${item.category}`}>
+              <div className="portfolio-block-six mb-40">
+                <div className="img-meta position-relative">
+                  <PrismicNextImage
+                    className="w-100 tran5s"
+                    width={1320}
+                    height={600}
+                    field={item.image}
+                  />
+                  <Item
+                    original={item.image.url}
+                    thumbnail={item.image.url}
+                    width={1320}
+                    height={600}
+                  >
+                    {({ ref, open }) => (
+                      <span
+                        role="button"
+                        className="fancybox tran3s overlay-icon zoom-icon"
+                        title="Click for large view"
+                        ref={ref}
+                        onClick={open}
+                      >
+                        <i className="bi bi-plus"></i>
+                      </span>
+                    )}
+                  </Item>
+                  <div className="caption tran3s d-flex justify-content-end flex-column">
+                    <RichText em={"tag"} field={item.tag} />
+                    <h6>
+                      <PrismicNextLink
+                        href={`/portfolio/${item.id}`}
+                        className="pj-title"
+                      >
+                        <RichText field={item.name} />
+                      </PrismicNextLink>
+                    </h6>
                   </div>
+                  {/* <!-- /.caption --> */}
                 </div>
               </div>
-            ))}
-          </Gallery>
+            </div>
+          ))}
+          {/* </Gallery> */}
         </div>
       </div>
     </div>

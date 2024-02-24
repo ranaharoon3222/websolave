@@ -13,6 +13,9 @@ export const components = {
   feedback_section: dynamic(() => import("./FeedbackSection")),
   hero: dynamic(() => import("./Hero")),
   navigation_item: dynamic(() => import("./NavigationItem")),
+  portfolio_category_section: dynamic(
+    () => import("./PortfolioCategorySection"),
+  ),
   service_box: dynamic(() => import("./ServiceBox")),
   testimonial_feedback_section: dynamic(
     () => import("./TestimonialFeedbackSection"),
