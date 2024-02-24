@@ -3,8 +3,10 @@ import Blog from "@/components/home-page/home-10/Blog";
 import FancyBlock2 from "@/components/home-page/home-10/FancyBlock2";
 import Services from "@/components/home-page/home-10/Services";
 import RichText from "@/components/prismic/RichText";
+import Block2 from "@/components/services/Block2";
 import Team5 from "@/components/team/Team5";
 import { PrismicNextLink } from "@prismicio/next";
+import Image from "next/image";
 
 /**
  * @typedef {import("@prismicio/client").Content.ServiceBoxSlice} ServiceBoxSlice
@@ -143,6 +145,16 @@ const ServiceBox = ({ slice }) => {
               {/* /.row */}
             </div>
           </div>
+          {/* /.container */}
+        </div>
+      )}
+      {slice.variation === "servicesFeatures" && (
+        <div className="fancy-feature-one">
+          <div className="container pt-120 lg-pt-80 md-pt-60">
+            <div className="row gx-xxl-5">
+              <Block2 slice={slice} />
+            </div>
+          </div>{" "}
           {/* /.container */}
         </div>
       )}

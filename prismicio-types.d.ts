@@ -341,6 +341,9 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PagesDocumentDataSlicesSlice =
+  | TestimonialFeedbackTwoSlice
+  | TestimonialFeedbackSectionSlice
+  | PortfolioCategorySectionSlice
   | ColumnTextSectionSlice
   | CounterTwoSectionSlice
   | FancyShortBannerSectionSlice
@@ -1495,9 +1498,84 @@ export type FeedbackSectionSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *FeedbackSection → Primary*
+ */
+export interface FeedbackSectionSliceServicesFeedbackPrimary {
+  /**
+   * Title field in *FeedbackSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feedback_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *FeedbackSection → Items*
+ */
+export interface FeedbackSectionSliceServicesFeedbackItem {
+  /**
+   * Feedback Title field in *FeedbackSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feedback_section.items[].feedback_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  feedback_title: prismic.RichTextField;
+
+  /**
+   * Feedback Description field in *FeedbackSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feedback_section.items[].feedback_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  feedback_description: prismic.RichTextField;
+
+  /**
+   * Feedback Name field in *FeedbackSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feedback_section.items[].feedback_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  feedback_name: prismic.RichTextField;
+
+  /**
+   * Feedback Image field in *FeedbackSection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feedback_section.items[].feedback_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  feedback_image: prismic.ImageField<never>;
+}
+
+/**
+ * Services Feedback variation for FeedbackSection Slice
+ *
+ * - **API ID**: `servicesFeedback`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeedbackSectionSliceServicesFeedback = prismic.SharedSliceVariation<
+  "servicesFeedback",
+  Simplify<FeedbackSectionSliceServicesFeedbackPrimary>,
+  Simplify<FeedbackSectionSliceServicesFeedbackItem>
+>;
+
+/**
  * Slice variation for *FeedbackSection*
  */
-type FeedbackSectionSliceVariation = FeedbackSectionSliceDefault;
+type FeedbackSectionSliceVariation =
+  | FeedbackSectionSliceDefault
+  | FeedbackSectionSliceServicesFeedback;
 
 /**
  * FeedbackSection Shared Slice
@@ -2177,13 +2255,82 @@ export type ServiceBoxSliceAboutTeam = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ServiceBox → Items*
+ */
+export interface ServiceBoxSliceServicesFeaturesItem {
+  /**
+   * Icon field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * link field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Background Color field in *ServiceBox → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_box.items[].background_color
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  background_color: prismic.KeyTextField;
+}
+
+/**
+ * Services Features variation for ServiceBox Slice
+ *
+ * - **API ID**: `servicesFeatures`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceBoxSliceServicesFeatures = prismic.SharedSliceVariation<
+  "servicesFeatures",
+  Record<string, never>,
+  Simplify<ServiceBoxSliceServicesFeaturesItem>
+>;
+
+/**
  * Slice variation for *ServiceBox*
  */
 type ServiceBoxSliceVariation =
   | ServiceBoxSliceDefault
   | ServiceBoxSliceFeaturesWrapper
   | ServiceBoxSliceBlogSectionOne
-  | ServiceBoxSliceAboutTeam;
+  | ServiceBoxSliceAboutTeam
+  | ServiceBoxSliceServicesFeatures;
 
 /**
  * ServiceBox Shared Slice
@@ -2684,8 +2831,11 @@ declare module "@prismicio/client" {
       FeedbackSectionSlice,
       FeedbackSectionSliceDefaultPrimary,
       FeedbackSectionSliceDefaultItem,
+      FeedbackSectionSliceServicesFeedbackPrimary,
+      FeedbackSectionSliceServicesFeedbackItem,
       FeedbackSectionSliceVariation,
       FeedbackSectionSliceDefault,
+      FeedbackSectionSliceServicesFeedback,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
@@ -2709,11 +2859,13 @@ declare module "@prismicio/client" {
       ServiceBoxSliceBlogSectionOneItem,
       ServiceBoxSliceAboutTeamPrimary,
       ServiceBoxSliceAboutTeamItem,
+      ServiceBoxSliceServicesFeaturesItem,
       ServiceBoxSliceVariation,
       ServiceBoxSliceDefault,
       ServiceBoxSliceFeaturesWrapper,
       ServiceBoxSliceBlogSectionOne,
       ServiceBoxSliceAboutTeam,
+      ServiceBoxSliceServicesFeatures,
       TestimonialFeedbackSectionSlice,
       TestimonialFeedbackSectionSliceDefaultPrimary,
       TestimonialFeedbackSectionSliceDefaultItem,

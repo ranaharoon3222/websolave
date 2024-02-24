@@ -64,7 +64,6 @@
 					[
 						"feedback_image",
 						{
-							"__TYPE__": "ImageContent",
 							"origin": {
 								"id": "main",
 								"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
@@ -82,6 +81,101 @@
 								},
 								"background": "transparent"
 							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "servicesFeedback",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "In consequat tempor aute anim. Commodo excepteur duis laboris ea proident tempor duis proident reprehenderit aute exercitation deserunt ullamco."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"feedback_title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Officia cupidatat nisi voluptate ut cupidatat incididunt eu pariatur laboris labore anim consequat. Minim sunt officia ut id aliquip qui excepteur exercitation eu eu minim reprehenderit. Id non consectetur ullamco mollit veniam minim consequat velit ex culpa ex."
+									}
+								}
+							]
+						}
+					],
+					[
+						"feedback_description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Velit in qui in nostrud duis labore laborum excepteur. Veniam mollit irure voluptate ut cillum commodo ad eiusmod fugiat veniam nulla nostrud non. Adipisicing nulla voluptate Lorem quis est duis consequat ad Lorem."
+									}
+								}
+							]
+						}
+					],
+					[
+						"feedback_name",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Occaecat reprehenderit in id esse nostrud ex nostrud exercitation. Et deserunt qui Lorem sit reprehenderit laboris ad excepteur laboris adipisicing. Voluptate nostrud duis incididunt aliquip."
+									}
+								}
+							]
+						}
+					],
+					[
+						"feedback_image",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+								"width": 3024,
+								"height": 3778
+							},
+							"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+							"width": 3024,
+							"height": 3778,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
 							"thumbnails": {}
 						}
 					]

@@ -1,8 +1,10 @@
 import Slider from "react-slick";
 import React, { useRef } from "react";
 import Image from "next/image";
+import { PrismicNextImage } from "@prismicio/next";
+import RichText from "../prismic/RichText";
 
-const Testimonial = () => {
+const Testimonial = ({ slice }) => {
   const data = [
     {
       imgSrc: "/images/media/img_02.png",
@@ -68,38 +70,39 @@ const Testimonial = () => {
       <div className="inner-content mt-100 lg-mt-60">
         <div className="feedback_slider_one custom">
           <Slider {...settings} ref={sliderRef} arrows={false}>
-            {data.map((item, index) => (
-              <div className="item" key={index}>
-                <div className="feedback-block-one pt-45 align-items-end d-sm-flex">
-                  <div className="img-meta position-relative">
-                    <Image
-                      width={297}
-                      height={397}
-                      src={item.imgSrc}
-                      alt="img"
-                      className="m-auto"
-                    />
-                  </div>
-                  <div className="text-wrapper">
-                    <div
-                      className="icon d-flex align-items-center justify-content-center rounded-circle mb-15"
-                      style={{ backgroundColor: item.backgroundColor }}
-                    >
-                      <Image
-                        width={28}
-                        height={25}
-                        src="/images/icon/icon_07.svg"
-                        alt="img"
+            {slice.items.map((item) => (
+              <div className="item" key={item.feedback_title}>
+                <div className="feedback-block-eleven">
+                  <div className="top-header d-flex align-items-center justify-content-between">
+                    <div>
+                      <RichText
+                        heading3={"tx-dark m0"}
+                        field={item.feedback_title}
                       />
+                      <ul className="style-none d-flex rating pt-15">
+                        {Array.from({ length: 5 }).map((_, index) => (
+                          <li key={index}>
+                            <i className="bi bi-star-fill" />
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <div className="rating h3 fw-bold tx-dark">
-                      {item.rating}
-                    </div>
-                    <p className="text-lg pt-35 pb-20">{item.text}</p>
-                    <h6>
-                      {item.author},{" "}
-                      <span className="opacity-25">{item.country}</span>
-                    </h6>
+                    <img src="/images/icon/icon_112.svg" alt="" width={50} />
+                  </div>
+                  <RichText
+                    paragraphClassName={"tx-dark"}
+                    field={item.feedback_description}
+                  />
+                  <div className="d-flex align-items-center justify-content-between">
+                    <RichText
+                      heading6="cost fw-500 tx-dark fs-20"
+                      em={"opacity-50 fw-normal"}
+                      field={item.feedback_name}
+                    />
+                    <PrismicNextImage
+                      field={item.feedback_image}
+                      className="rounded-circle"
+                    />
                   </div>
                 </div>
               </div>

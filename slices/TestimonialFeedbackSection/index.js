@@ -45,10 +45,10 @@ const TestimonialFeedbackSection = ({ slice }) => {
                   />
 
                   <div className="rating-box bg-black text-white d-flex flex-column justify-content-center align-items-center">
-                    <RichText
-                      strong={"fw-500"}
-                      field={slice.primary.rating_count}
-                    />
+                    <strong className="fw-500">
+                      {slice.primary.rating_count}
+                    </strong>
+
                     <RichText field={slice.primary.rating_text} />
                   </div>
                   {/* /.rating-box */}

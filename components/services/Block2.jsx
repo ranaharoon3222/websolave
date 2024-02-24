@@ -1,6 +1,8 @@
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import RichText from "../prismic/RichText";
 
 const cardData = [
   {
@@ -59,47 +61,55 @@ const cardData = [
   },
 ];
 
-const Block2 = () => {
+const Block2 = ({ slice }) => {
   return (
     <>
-      {cardData.map((card) => (
+      {slice.items.map((card, index) => (
         <div
           className="col-lg-4 col-sm-6"
           data-aos="fade-up"
-          data-aos-delay={card.delay}
-          key={card.id}
+          data-aos-delay={`${index * 100}`}
+          key={index}
         >
           <div className="card-style-one pe-xxl-5 position-relative mb-90 md-mb-70">
             <div
               className="icon d-flex align-items-center justify-content-center"
-              style={{ backgroundColor: card.bgColor }}
+              style={{ backgroundColor: card.background_color }}
             >
-              <Image
+              <PrismicNextImage
+                field={card.icon}
+                sizes="100vw"
+                className="lazy-img"
+              />
+              {/* <Image
                 width={32}
                 height={40}
                 src={card.iconSrc}
                 alt="icon"
                 className="lazy-img"
-              />
+              /> */}
             </div>
-            <h5 className="fw-500 mt-35 mb-25">
-              <Link
-                href="/pages-menu/service-details"
-                className="tran3s tx-dark"
-              >
-                {card.title}
-              </Link>
-            </h5>
-            <p className="mb-25">{card.description}</p>
-            <Link href="/pages-menu/service-details">
-              <Image
-                width={41}
-                height={14}
+            <RichText
+              heading5={"fw-500 mt-35 mb-25"}
+              field={card.title}
+              hyperlink={"tran3s tx-dark"}
+            />
+            <RichText paragraphClassName="mb-25" field={card.description} />
+            {/* <p className="mb-25">{card.description}</p> */}
+            <PrismicNextLink field={card.link}>
+              <img
                 src="/images/icon/icon_05.svg"
                 alt="icon"
                 className="lazy-img"
               />
-            </Link>
+
+              {/* <Image
+                width="100%"
+                src="/images/icon/icon_05.svg"
+                alt="icon"
+                className="lazy-img"
+              /> */}
+            </PrismicNextLink>
           </div>
           {/* /.card-style-one */}
         </div>

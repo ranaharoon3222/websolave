@@ -1,5 +1,6 @@
 import RichText from "@/components/prismic/RichText";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import Image from "next/image";
 import Link from "next/link";
 
 const servicesData = [
@@ -90,6 +91,12 @@ const Services = ({ item }) => {
         </h5> */}
         <RichText paragraphClassName="mb-25" field={item.description} />
         <PrismicNextLink field={item.link}>
+          {/* <Image
+            width="100%"
+            src="/images/icon/icon_05.svg"
+            alt="icon"
+            className="lazy-img"
+          /> */}
           <img src="/images/icon/icon_05.svg" alt="icon" className="lazy-img" />
         </PrismicNextLink>
       </div>

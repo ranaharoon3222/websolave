@@ -31,7 +31,8 @@ const TestimonialFeedbackTwo = ({ slice }) => {
                 </div>
                 <RichText
                   heading2={"main-title fw-500"}
-                  em={"d-inline-block position-relative mark-bg"}
+                  em={"position-relative mark-bg "}
+                  field={slice.primary.title}
                 />
               </div>
               {/* /.title-style-three */}

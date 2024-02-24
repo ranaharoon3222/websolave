@@ -80,14 +80,9 @@ const PortfolioGallery6 = ({ slice }) => {
                   </Item>
                   <div className="caption tran3s d-flex justify-content-end flex-column">
                     <RichText em={"tag"} field={item.tag} />
-                    <h6>
-                      <PrismicNextLink
-                        href={`/portfolio/${item.id}`}
-                        className="pj-title"
-                      >
-                        <RichText field={item.name} />
-                      </PrismicNextLink>
-                    </h6>
+                    <Link href={`/portfolio/${item.id}`}>
+                      <RichText field={item.name} heading6={"pj-title"} />
+                    </Link>
                   </div>
                   {/* <!-- /.caption --> */}
                 </div>
