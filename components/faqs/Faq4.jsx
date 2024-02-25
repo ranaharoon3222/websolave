@@ -1,28 +1,6 @@
 import React from "react";
 import RichText from "../prismic/RichText";
 
-const faqData = [
-  {
-    id: 1,
-    question: "Google ads setup & management",
-    answer:
-      "Our founders Dustin Moskovitz and Justin Rosenstein met while leading Engineering teams at Facebook.",
-  },
-  {
-    id: 2,
-    question: "Web Design & Development",
-    answer:
-      "Our founders Dustin Moskovitz and Justin Rosenstein met while leading Engineering teams at Facebook.",
-  },
-  {
-    id: 3,
-    question: "Reputation management",
-    answer:
-      "Our founders Dustin Moskovitz and Justin Rosenstein met while leading Engineering teams at Facebook.",
-  },
-  // Add more FAQ items as needed
-];
-
 const Faq4 = ({ slice }) => {
   return (
     <div className="accordion accordion-style-two" id="accordionOne">

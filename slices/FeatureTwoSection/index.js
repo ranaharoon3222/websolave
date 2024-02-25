@@ -8,37 +8,39 @@ import OurAim from "@/components/home-page/home-10/OurAim";
  * @param {FeatureTwoSectionProps}
  */
 const FeatureTwoSection = ({ slice }) => {
+  const { variation } = slice;
+  const variationComponent = {
+    default: (
+      <div className="fancy-feature-two position-relative pt-225 mt-40 lg-pt-100 sm-pt-60">
+        <div className="container">
+          <OurAim slice={slice} />
+        </div>
+        {/* /.container */}
+      </div>
+    ),
+    featureTwoWithName: (
+      <div className="fancy-feature-two position-relative pt-250 lg-pt-120">
+        <div className="container">
+          <FancyBlock slice={slice} />
+        </div>
+        {/* /.container */}
+      </div>
+    ),
+    aboutFeatureOne: (
+      <div className="fancy-feature-two position-relative pt-150 lg-pt-90">
+        <div className="container">
+          <AboutCeo slice={slice} />
+        </div>
+        {/* /.container */}
+      </div>
+    ),
+  };
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      {/* /.fancy-feature-two - Default variation only */}
-      {slice.variation === "default" && (
-        <div className="fancy-feature-two position-relative pt-225 mt-40 lg-pt-100 sm-pt-60">
-          <div className="container">
-            <OurAim slice={slice} />
-          </div>
-          {/* /.container */}
-        </div>
-      )}
-      {/* /.fancy-feature-two - featureTwoWithName variation only */}
-      {slice.variation === "featureTwoWithName" && (
-        <div className="fancy-feature-two position-relative pt-250 lg-pt-120">
-          <div className="container">
-            <FancyBlock slice={slice} />
-          </div>
-          {/* /.container */}
-        </div>
-      )}
-      {slice.variation === "aboutFeatureOne" && (
-        <div className="fancy-feature-two position-relative pt-150 lg-pt-90">
-          <div className="container">
-            <AboutCeo slice={slice} />
-          </div>
-          {/* /.container */}
-        </div>
-      )}
+      {variationComponent[variation] || null}
     </section>
   );
 };

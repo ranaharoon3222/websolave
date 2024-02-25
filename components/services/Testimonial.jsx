@@ -1,45 +1,9 @@
 import Slider from "react-slick";
 import React, { useRef } from "react";
-import Image from "next/image";
 import { PrismicNextImage } from "@prismicio/next";
 import RichText from "../prismic/RichText";
 
 const Testimonial = ({ slice }) => {
-  const data = [
-    {
-      imgSrc: "/images/media/img_02.png",
-      backgroundColor: "#825EFF",
-      rating: "Very solid, 8.3 out 10",
-      text: "We’v 9,000 agents across are country, Find agents near your neighborhood.",
-      author: "Martin Jonas",
-      country: "USA",
-    },
-    {
-      imgSrc: "/images/media/img_03.png",
-      backgroundColor: "#08CE97",
-      rating: "Very solid, 7.2 out 10",
-      text: "We’v 9,000 agents across are country, Find agents near your neighborhood.",
-      author: "Martin Jonas",
-      country: "USA",
-    },
-    {
-      imgSrc: "/images/media/img_02.png",
-      backgroundColor: "#FF8A3A",
-      rating: "Very solid, 9.1 out 10",
-      text: "We’v 9,000 agents across are country, Find agents near your neighborhood.",
-      author: "Martin Jonas",
-      country: "USA",
-    },
-    {
-      imgSrc: "/images/media/img_03.png",
-      backgroundColor: "#08CE97",
-      rating: "Very solid, 10 out 10",
-      text: "We’v 9,000 agents across are country, Find agents near your neighborhood.",
-      author: "Martin Jonas",
-      country: "USA",
-    },
-  ];
-
   const settings = {
     dots: false,
     arrows: false,

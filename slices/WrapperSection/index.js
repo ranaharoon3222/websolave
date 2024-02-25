@@ -7,13 +7,17 @@ import FancyBanner from "@/components/home-page/home-10/FancyBanner";
  * @param {WrapperSectionProps}
  */
 const WrapperSection = ({ slice }) => {
+  const { variation } = slice;
+  const variationComponent = {
+    default: <FancyBanner slice={slice} />,
+    heroBanner: <Hero slice={slice} />,
+  };
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      {slice.variation === "default" && <FancyBanner slice={slice} />}
-      {slice.variation === "heroBanner" && <Hero slice={slice} />}
+      {variationComponent[variation] || null}
     </section>
   );
 };

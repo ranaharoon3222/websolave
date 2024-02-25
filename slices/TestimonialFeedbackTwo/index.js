@@ -59,73 +59,36 @@ const TestimonialFeedbackTwo = ({ slice }) => {
             className="lazy-img shapes rounded-circle cp-one"
             style={{ width: "80px", height: "80px" }}
           />
-          {/* <img
-            src="/images/shape/shape_37.svg"
-            alt="shape"
-            className="lazy-img main-img m-auto"
-          /> */}
+
           <PrismicNextImage
             field={slice.primary.image_two}
             className="lazy-img shapes rounded-circle cp-two"
             style={{ width: "45px", height: "45px" }}
           />
-          {/* <img
-            src="/images/media/img_07.jpg"
-            alt="shape"
-            className="lazy-img shapes rounded-circle cp-one"
-            style={{ width: "80px", height: "80px" }}
-          /> */}
+
           <PrismicNextImage
             field={slice.primary.image_three}
             className="lazy-img shapes rounded-circle cp-three"
             style={{ width: "85px", height: "85px" }}
           />
-          {/* <img
 
-            src="/images/media/img_08.jpg"
-            alt="shape"
-            className="lazy-img shapes rounded-circle cp-two"
-            style={{ width: "45px", height: "45px" }}
-          /> */}
           <PrismicNextImage
             field={slice.primary.image_four}
             className="lazy-img shapes rounded-circle cp-four"
             style={{ width: "45px", height: "45px" }}
           />
-          {/* <img
-            src="/images/media/img_09.jpg"
-            alt="shape"
-            className="lazy-img shapes rounded-circle cp-three"
-            style={{ width: "85px", height: "85px" }}
-          /> */}
-          {/* <img
-            src="/images/media/img_10.jpg"
-            alt="shape"
-            className="lazy-img shapes rounded-circle cp-four"
-            style={{ width: "45px", height: "45px" }}
-          /> */}
+
           <PrismicNextImage
             field={slice.primary.image_five}
             className="lazy-img shapes rounded-circle cp-five"
             style={{ width: "110px", height: "110px" }}
           />
-          {/* <img
-            src="/images/media/img_11.jpg"
-            alt="shape"
-            className="lazy-img shapes rounded-circle cp-five"
-            style={{ width: "110px", height: "110px" }}
-          /> */}
+
           <PrismicNextImage
             field={slice.primary.image_six}
             className="lazy-img shapes rounded-circle cp-six"
             style={{ width: "55px", height: "55px" }}
           />
-          {/* <img
-            src="/images/media/img_12.jpg"
-            alt="shape"
-            className="lazy-img shapes rounded-circle cp-six"
-            style={{ width: "55px", height: "55px" }}
-          /> */}
         </div>
       </div>
     </section>

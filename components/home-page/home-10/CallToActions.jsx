@@ -17,14 +17,10 @@ const CallToActions = ({ slice }) => {
                       paragraphClassName="sc-title fw-500 mb-0"
                       field={slice.primary.top_text}
                     />
-                    {/* <div className="sc-title fw-500 ">Subscirbe Now</div> */}
                     <RichText
                       heading4="main-title fw-bold tx-dark"
                       field={slice.primary.title}
                     />
-                    {/* <h4 className="main-title fw-bold tx-dark">
-                      New user? Start your free trial now.
-                    </h4> */}
                   </div>
                   {/* /.title-style-two */}
                 </div>

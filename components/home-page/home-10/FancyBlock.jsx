@@ -52,25 +52,18 @@ const FancyBlock = ({ slice }) => {
               heading2={"main-title fw-bold tx-dark m0"}
               field={slice.primary.title}
             />
-            {/* <h2 className="main-title fw-bold tx-dark m0">{data.title}</h2> */}
           </div>
           {/* /.title-style-one */}
           <RichText
             paragraphClassName={"text-lg pt-60 pb-60 lg-pt-30 lg-pb-30"}
             field={slice.primary.sub_title}
           />
-          {/* <p className="text-lg pt-60 pb-60 lg-pt-30 lg-pb-30">
-            {data.subtitle}
-          </p> */}
+
           <RichText
             heading4={"name fs-20 tx-dark fw-500"}
             field={slice.primary.name}
             em={"opacity-25"}
           />
-          {/* <div className="name fs-20 tx-dark fw-500">
-            - {data.author},{" "}
-            <span className="opacity-25">{data.authorTitle}</span>
-          </div> */}
         </div>
 
         {/* /.block-style-one */}
@@ -96,7 +89,6 @@ const FancyBlock = ({ slice }) => {
           ))}
           <div className="card-one" data-aos="fade-up" data-aos-delay="250">
             <div className="icon d-flex align-items-center justify-content-center rounded-circle">
-              {/* <img src="/images/icon/icon_08.svg" alt="" className="lazy-img" /> */}
               <PrismicNextImage
                 field={slice.primary.icon}
                 className="lazy-img"
@@ -106,7 +98,6 @@ const FancyBlock = ({ slice }) => {
               heading5={"fw-500 m-0"}
               field={slice.primary.card_one_text}
             />
-            {/* <h5 className="fw-500 m0">Expert talkign with cusomter.</h5> */}
           </div>
           {/* /.card-one */}
         </div>

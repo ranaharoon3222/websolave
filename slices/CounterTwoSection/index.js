@@ -11,13 +11,11 @@ const CounterTwoSection = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      {/* <div className="fancy-feature-two position-relative"> */}
       <div className="container">
         <div className="row justify-content-center pt-60 md-pt-40">
           <Counter2 slice={slice} />
         </div>
       </div>
-      {/* </div> */}
     </section>
   );
 };
