@@ -14,7 +14,6 @@ import { useState } from "react";
  * @param {ServiceBoxProps}
  */
 const ServiceBox = ({ slice, context }) => {
-  console.log(context.blogs);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6; // Number of posts to display per page
   const blogPosts = slice.items; // Array of your blog posts

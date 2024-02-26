@@ -1,23 +1,22 @@
 import { useState } from "react";
-import items from "../../data/portfolio";
-import { Gallery, Item } from "react-photoswipe-gallery";
+import { Item } from "react-photoswipe-gallery";
 import "photoswipe/dist/photoswipe.css";
 import Link from "next/link";
-import Image from "next/image";
 import RichText from "../prismic/RichText";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicNextImage } from "@prismicio/next";
 
-const PortfolioGallery6 = ({ slice }) => {
+const PortfolioGallery6 = ({ slice, all_projects }) => {
   const [filter, setFilter] = useState("*");
-
   // const filteredItems =
   //   filter === "*"
-  //     ? items.slice(40, 45)
-  //     : items.slice(40, 45).filter((item) => item.category.includes(filter));
+  //     ? slice.items
+  //     : slice.items.filter((item) => item.category.includes(filter));
   const filteredItems =
     filter === "*"
-      ? slice.items
-      : slice.items.filter((item) => item.category.includes(filter));
+      ? all_projects
+      : all_projects.filter((item) =>
+          item.data.project_category.includes(filter)
+        );
   return (
     <div className="portfolio-gallery-seven pt-30">
       <div className="container">
@@ -51,37 +50,46 @@ const PortfolioGallery6 = ({ slice }) => {
         <div className="row pt-90 lg-pt-50">
           {/* <Gallery> */}
           {filteredItems.map((item, index) => (
-            <div key={index} className={`col-lg-12 ${item.category}`}>
+            <div
+              key={index}
+              className={`col-lg-12 ${item.data.project_category}`}
+            >
               <div className="portfolio-block-six mb-40">
                 <div className="img-meta position-relative">
                   <PrismicNextImage
                     className="w-100 tran5s"
                     width={1320}
                     height={600}
-                    field={item.image}
+                    field={item.data.projectslideimages[0].image}
                   />
                   <Item
-                    original={item.image.url}
-                    thumbnail={item.image.url}
+                    original={item.data.projectslideimages[0].image.url}
+                    thumbnail={item.data.projectslideimages[0].image.url}
                     width={1320}
                     height={600}
                   >
                     {({ ref, open }) => (
-                      <span
-                        role="button"
-                        className="fancybox tran3s overlay-icon zoom-icon"
-                        title="Click for large view"
-                        ref={ref}
-                        onClick={open}
-                      >
-                        <i className="bi bi-plus"></i>
-                      </span>
+                      <Link href={`/portfolio/${item.uid}`}>
+                        <span
+                          role="button"
+                          className="fancybox tran3s overlay-icon zoom-icon"
+                          title="Click for large view"
+                          ref={ref}
+                          onClick={open}
+                        >
+                          <i className="bi bi-plus"></i>
+                        </span>
+                      </Link>
                     )}
                   </Item>
                   <div className="caption tran3s d-flex justify-content-end flex-column">
-                    <RichText em={"tag"} field={item.tag} />
-                    <Link href={`/portfolio/${item.id}`}>
-                      <RichText field={item.name} heading6={"pj-title"} />
+                    <RichText em={"tag"} field={item.data.project_tag} />
+                    <Link href={`/portfolio/${item.uid}`}>
+                      <h6 className="pj-title">
+                        {item.uid
+                          .replace(/-/g, " ")
+                          .replace(/\b\w/g, (c) => c.toUpperCase())}
+                      </h6>
                     </Link>
                   </div>
                   {/* <!-- /.caption --> */}

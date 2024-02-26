@@ -450,7 +450,128 @@ interface PagesDocumentData {
 export type PagesDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PagesDocumentData>, "pages", Lang>;
 
+/**
+ * Item in *Portfolio → Project Details*
+ */
+export interface PortfolioDocumentDataProjectDetailsItem {
+  /**
+   * Title field in *Portfolio → Project Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.project_details[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *Portfolio → Project Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.project_details[].text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Portfolio → Social Share*
+ */
+export interface PortfolioDocumentDataSocialShareItem {
+  /**
+   * Name field in *Portfolio → Social Share*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.social_share[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Icon field in *Portfolio → Social Share*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.social_share[].icon
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  icon: prismic.KeyTextField;
+
+  /**
+   * Url field in *Portfolio → Social Share*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.social_share[].url
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  url: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Portfolio → Gallery*
+ */
+export interface PortfolioDocumentDataGalleryItem {
+  /**
+   * ImageSrc field in *Portfolio → Gallery*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.gallery[].imagesrc
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  imagesrc: prismic.ImageField<never>;
+
+  /**
+   * Width field in *Portfolio → Gallery*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.gallery[].width
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  width: prismic.KeyTextField;
+
+  /**
+   * Height field in *Portfolio → Gallery*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.gallery[].height
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  height: prismic.KeyTextField;
+
+  /**
+   * Alt field in *Portfolio → Gallery*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.gallery[].alt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  alt: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Portfolio → ProjectSlideImages*
+ */
+export interface PortfolioDocumentDataProjectslideimagesItem {
+  /**
+   * Image field in *Portfolio → ProjectSlideImages*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.projectslideimages[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
 type PortfolioDocumentDataSlicesSlice =
+  | WrapperSectionSlice
   | PortfolioCategorySectionSlice
   | FeatureOneSectionSlice;
 
@@ -458,6 +579,221 @@ type PortfolioDocumentDataSlicesSlice =
  * Content for Portfolio documents
  */
 interface PortfolioDocumentData {
+  /**
+   * Title field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Sidebar Title field in *Portfolio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.sidebar_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sidebar_title: prismic.RichTextField;
+
+  /**
+   * Sidebar Description field in *Portfolio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.sidebar_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sidebar_description: prismic.RichTextField;
+
+  /**
+   * Date field in *Portfolio*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * Project Details field in *Portfolio*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.project_details[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  project_details: prismic.GroupField<
+    Simplify<PortfolioDocumentDataProjectDetailsItem>
+  >;
+
+  /**
+   * Social Share field in *Portfolio*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.social_share[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  social_share: prismic.GroupField<
+    Simplify<PortfolioDocumentDataSocialShareItem>
+  >;
+
+  /**
+   * Top Text field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.top_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  top_text: prismic.KeyTextField;
+
+  /**
+   * Description field in *Portfolio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Gallery field in *Portfolio*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.gallery[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  gallery: prismic.GroupField<Simplify<PortfolioDocumentDataGalleryItem>>;
+
+  /**
+   * Final Top Text field in *Portfolio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.final_top_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  final_top_text: prismic.RichTextField;
+
+  /**
+   * Final Title field in *Portfolio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.final_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  final_title: prismic.RichTextField;
+
+  /**
+   * Final Description field in *Portfolio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.final_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  final_description: prismic.RichTextField;
+
+  /**
+   * ProjectSlideImages field in *Portfolio*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.projectslideimages[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  projectslideimages: prismic.GroupField<
+    Simplify<PortfolioDocumentDataProjectslideimagesItem>
+  >;
+
+  /**
+   * Hero Title field in *Portfolio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.hero_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hero_title: prismic.RichTextField;
+
+  /**
+   * Hero Top Text field in *Portfolio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.hero_top_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hero_top_text: prismic.RichTextField;
+
+  /**
+   * Hero Image field in *Portfolio*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.hero_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hero_image: prismic.ImageField<never>;
+
+  /**
+   * Date Title field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.date_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  date_title: prismic.KeyTextField;
+
+  /**
+   * Project Category field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.project_category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_category: prismic.KeyTextField;
+
+  /**
+   * Project Tag field in *Portfolio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.project_tag
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_tag: prismic.RichTextField;
+
   /**
    * Slice Zone field in *Portfolio*
    *
@@ -3104,6 +3440,10 @@ declare module "@prismicio/client" {
       PagesDocumentDataSlicesSlice,
       PortfolioDocument,
       PortfolioDocumentData,
+      PortfolioDocumentDataProjectDetailsItem,
+      PortfolioDocumentDataSocialShareItem,
+      PortfolioDocumentDataGalleryItem,
+      PortfolioDocumentDataProjectslideimagesItem,
       PortfolioDocumentDataSlicesSlice,
       ProjectsDocument,
       ProjectsDocumentData,

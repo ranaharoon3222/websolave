@@ -1,44 +1,18 @@
 import { Gallery, Item } from "react-photoswipe-gallery";
 import "photoswipe/dist/photoswipe.css";
-import Image from "next/image";
+import { PrismicNextImage } from "@prismicio/next";
 
-const images = [
-  {
-    src: "/images/media/img_89.jpg",
-    width: "460",
-    height: "400",
-    alt: "media",
-  },
-  {
-    src: "/images/media/img_90.jpg",
-    width: "460",
-    height: "400",
-    alt: "media",
-  },
-  {
-    src: "/images/media/img_91.jpg",
-    width: "960",
-    height: "510",
-    alt: "media",
-  },
-];
-
-const PortfolioGallery = () => {
+const PortfolioGallery = ({ images }) => {
   return (
     <>
       <Gallery>
-        {images.map((image, index) => (
+        {images.gallery.map((img, index) => (
           <div
             className={`col-12 ${index === 2 ? "" : "col-sm-6"}`}
             key={index}
           >
-            <div className="img-meta mt-30" data-aos="fade-right">
-              <Item
-                original={image.src}
-                thumbnail={image.src}
-                width={image.width}
-                height={image.height}
-              >
+            <div className="img-meta mt-30 h-auto" data-aos="fade-right">
+              <Item width={img.width} height={img.height}>
                 {({ ref, open }) => (
                   <span
                     role="button"
@@ -47,14 +21,21 @@ const PortfolioGallery = () => {
                     ref={ref}
                     onClick={open}
                   >
-                    <Image
+                    <PrismicNextImage
+                      field={img.imagesrc}
+                      alt={img.alt}
+                      className="lazy-img w-100"
+                      width={img.width}
+                      height={img.height}
+                    />
+                    {/* <Image
                       width={460}
                       height={400}
                       layout="responsive"
-                      src={image.src}
-                      alt={image.alt}
+                      src={img.imagesrc}
+                      alt={img.alt}
                       className="lazy-img w-100"
-                    />
+                    /> */}
                   </span>
                 )}
               </Item>
