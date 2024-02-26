@@ -90,6 +90,17 @@ interface BlogDocumentData {
   description: prismic.RichTextField;
 
   /**
+   * Category Bg field in *blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.category_bg
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  category_bg: prismic.KeyTextField;
+
+  /**
    * Slice Zone field in *blog*
    *
    * - **Field Type**: Slice Zone
