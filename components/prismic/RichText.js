@@ -1,6 +1,9 @@
 import { PrismicRichText } from '@prismicio/react';
 import React from 'react';
 import Link from 'next/link';
+import { PrismicNextImage } from '@prismicio/next';
+import { linkResolver } from 'prismicio';
+import Image from 'next/image';
 
 const RichText = ({
   field,
@@ -15,6 +18,7 @@ const RichText = ({
   heading3,
   heading6,
   heading5,
+  imageClass,
   list,
 }) => {
   return (
@@ -54,6 +58,18 @@ const RichText = ({
           },
 
           list: ({ children }) => <ul className={`${list}`}>{children}</ul>,
+          image: ({ node }) => {
+            return (
+              <Image
+                className={`${imageClass}`}
+                src={node.url}
+                alt={node.alt}
+                layout='responsive'
+                width={'1000'}
+                height={'500'}
+              />
+            );
+          },
 
           strong: ({ children }) => (
             <strong className={`${strong}`}>{children}</strong>

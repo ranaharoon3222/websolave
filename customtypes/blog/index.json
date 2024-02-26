@@ -1,6 +1,9 @@
 {
   "format": "page",
   "id": "blog",
+  "label": "blog",
+  "repeatable": true,
+  "status": true,
   "json": {
     "Main": {
       "uid": {
@@ -9,12 +12,73 @@
         },
         "type": "UID"
       },
-      "slices": {
+      "title": {
+        "type": "Text",
         "config": {
-          "choices": {}
-        },
+          "label": "title",
+          "placeholder": ""
+        }
+      },
+      "category": {
+        "type": "Text",
+        "config": {
+          "label": "category",
+          "placeholder": ""
+        }
+      },
+      "date": {
+        "type": "Date",
+        "config": {
+          "label": "date",
+          "placeholder": ""
+        }
+      },
+      "author": {
+        "type": "Text",
+        "config": {
+          "label": "author",
+          "placeholder": ""
+        }
+      },
+      "featured_image": {
+        "type": "Image",
+        "config": {
+          "label": "featured_image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "summary": {
+        "type": "StructuredText",
+        "config": {
+          "label": "summary",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "slices": {
+        "type": "Slices",
         "fieldset": "Slice Zone",
-        "type": "Slices"
+        "config": {
+          "choices": {
+            "wrapper_section": {
+              "type": "SharedSlice"
+            },
+            "fancy_short_banner_section": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     },
     "SEO & Metadata": {
@@ -44,8 +108,5 @@
         "type": "Text"
       }
     }
-  },
-  "label": "blog",
-  "repeatable": true,
-  "status": true
+  }
 }

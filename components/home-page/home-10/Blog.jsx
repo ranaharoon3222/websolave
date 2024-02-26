@@ -1,7 +1,7 @@
-import Link from "next/link";
-import blogData from "../../../data/blog";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import RichText from "@/components/prismic/RichText";
+import Link from 'next/link';
+import blogData from '../../../data/blog';
+import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
+import RichText from '@/components/prismic/RichText';
 
 const Blog = ({ slice }) => {
   return (
@@ -49,45 +49,45 @@ const Blog = ({ slice }) => {
         <div
           key={index}
           className={`col-lg-4 col-sm-6 d-flex`}
-          data-aos="fade-up"
+          data-aos='fade-up'
           data-aos-delay={`${index * 100}`}
         >
-          <article className="blog-meta-one tran3s mt-30">
-            <figure className="post-img m0">
+          <article className='blog-meta-one tran3s mt-30'>
+            <figure className='post-img m0'>
               <PrismicNextLink
                 href={`/blog/${blog.id}`}
                 field={blog.link}
-                className="w-100 d-block"
+                className='w-100 d-block'
               >
                 <PrismicNextImage
                   field={blog.image}
-                  className="lazy-img tran4s h-auto"
+                  className='lazy-img tran4s h-auto'
                 />
               </PrismicNextLink>
             </figure>
-            <div className="post-data mt-25">
+            <div className='post-data mt-25'>
               <PrismicNextLink
-                href={"#"}
-                className="post-tag fw-500 tx-dark text-uppercase mb-20"
+                href={'#'}
+                className='post-tag fw-500 tx-dark text-uppercase mb-20'
                 style={{ backgroundColor: `${blog.badge_bg_color}` }}
               >
-                <RichText field={blog.badge} paragraphClassName="mb-0" />
+                <RichText field={blog.badge} paragraphClassName='mb-0' />
               </PrismicNextLink>
               <PrismicNextLink
                 href={`/blog/${blog.id}`}
-                className="blog-title d-block"
+                className='blog-title d-block'
               >
-                <RichText heading4={"tran3s"} field={blog.blog_title} />
+                <RichText heading4={'tran3s'} field={blog.blog_title} />
               </PrismicNextLink>
               <PrismicNextLink
                 href={`/blog/${blog.id}`}
                 field={blog.link}
-                className="read-btn mt-35"
+                className='read-btn mt-35'
               >
                 <img
-                  src="/images/icon/icon_12.svg"
-                  alt="icon"
-                  className="lazy-img"
+                  src='/images/icon/icon_12.svg'
+                  alt='icon'
+                  className='lazy-img'
                 />
               </PrismicNextLink>
             </div>

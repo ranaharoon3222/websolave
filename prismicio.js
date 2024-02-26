@@ -29,6 +29,14 @@ export function linkResolver(doc) {
       return '/home';
     case 'pages':
       return `/${doc.uid}`;
+    case 'blog':
+      return `/${doc.uid}`;
+    case 'services':
+      return `/${doc.uid}`;
+    case 'portfolio':
+      return `/${doc.uid}`;
+    case 'projects':
+      return `/${doc.uid}`;
     default:
       return null;
   }
