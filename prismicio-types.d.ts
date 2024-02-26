@@ -366,6 +366,8 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PagesDocumentDataSlicesSlice =
+  | FaqSliceSlice
+  | PricingSliceSlice
   | ContactAddressSlice
   | TestimonialFeedbackTwoSlice
   | TestimonialFeedbackSectionSlice
@@ -853,6 +855,68 @@ export type PortfolioDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Pricing Features → Features List*
+ */
+export interface PricingFeaturesDocumentDataFeaturesListItem {
+  /**
+   * Feature Text field in *Pricing Features → Features List*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_features.features_list[].feature_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  feature_text: prismic.KeyTextField;
+}
+
+type PricingFeaturesDocumentDataSlicesSlice = PricingSliceSlice;
+
+/**
+ * Content for Pricing Features documents
+ */
+interface PricingFeaturesDocumentData {
+  /**
+   * Features List field in *Pricing Features*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_features.features_list[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  features_list: prismic.GroupField<
+    Simplify<PricingFeaturesDocumentDataFeaturesListItem>
+  >;
+
+  /**
+   * Slice Zone field in *Pricing Features*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_features.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PricingFeaturesDocumentDataSlicesSlice>;
+}
+
+/**
+ * Pricing Features document from Prismic
+ *
+ * - **API ID**: `pricing_features`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PricingFeaturesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<PricingFeaturesDocumentData>,
+    "pricing_features",
+    Lang
+  >;
+
 type ProjectsDocumentDataSlicesSlice = never;
 
 /**
@@ -989,6 +1053,7 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PagesDocument
   | PortfolioDocument
+  | PricingFeaturesDocument
   | ProjectsDocument
   | ServicesDocument;
 
@@ -1511,6 +1576,61 @@ type FancyShortBannerSectionSliceVariation =
 export type FancyShortBannerSectionSlice = prismic.SharedSlice<
   "fancy_short_banner_section",
   FancyShortBannerSectionSliceVariation
+>;
+
+/**
+ * Primary content in *FaqSlice → Items*
+ */
+export interface FaqSliceSliceDefaultItem {
+  /**
+   * Question field in *FaqSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_slice.items[].question
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  question: prismic.KeyTextField;
+
+  /**
+   * Answer field in *FaqSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_slice.items[].answer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  answer: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for FaqSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<FaqSliceSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *FaqSlice*
+ */
+type FaqSliceSliceVariation = FaqSliceSliceDefault;
+
+/**
+ * FaqSlice Shared Slice
+ *
+ * - **API ID**: `faq_slice`
+ * - **Description**: FaqSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSliceSlice = prismic.SharedSlice<
+  "faq_slice",
+  FaqSliceSliceVariation
 >;
 
 /**
@@ -2508,6 +2628,176 @@ export type PortfolioCategorySectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *PricingSlice → Primary*
+ */
+export interface PricingSliceSliceDefaultPrimary {
+  /**
+   * Consult Text field in *PricingSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.primary.consult_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  consult_text: prismic.KeyTextField;
+
+  /**
+   * Consult Label field in *PricingSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.primary.consult_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  consult_label: prismic.KeyTextField;
+
+  /**
+   * Consult Link field in *PricingSlice → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.primary.consult_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  consult_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *PricingSlice → Items*
+ */
+export interface PricingSliceSliceDefaultItem {
+  /**
+   * Name field in *PricingSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Background field in *PricingSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.items[].background
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  background: prismic.KeyTextField;
+
+  /**
+   * Price field in *PricingSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.items[].price
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  price: prismic.KeyTextField;
+
+  /**
+   * Monthly Text field in *PricingSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.items[].monthly_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  monthly_text: prismic.KeyTextField;
+
+  /**
+   * Renewal Text field in *PricingSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.items[].renewal_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  renewal_text: prismic.KeyTextField;
+
+  /**
+   * Pricing Features field in *PricingSlice → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.items[].pricing_features
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  pricing_features: prismic.RichTextField;
+
+  /**
+   * Details field in *PricingSlice → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.items[].details
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  details: prismic.RichTextField;
+
+  /**
+   * Button Label field in *PricingSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.items[].button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * Trial Text field in *PricingSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.items[].trial_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  trial_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *PricingSlice → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.items[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+}
+
+/**
+ * Default variation for PricingSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PricingSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PricingSliceSliceDefaultPrimary>,
+  Simplify<PricingSliceSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *PricingSlice*
+ */
+type PricingSliceSliceVariation = PricingSliceSliceDefault;
+
+/**
+ * PricingSlice Shared Slice
+ *
+ * - **API ID**: `pricing_slice`
+ * - **Description**: PricingSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PricingSliceSlice = prismic.SharedSlice<
+  "pricing_slice",
+  PricingSliceSliceVariation
+>;
+
+/**
  * Primary content in *ServiceBox → Items*
  */
 export interface ServiceBoxSliceDefaultItem {
@@ -3445,6 +3735,10 @@ declare module "@prismicio/client" {
       PortfolioDocumentDataGalleryItem,
       PortfolioDocumentDataProjectslideimagesItem,
       PortfolioDocumentDataSlicesSlice,
+      PricingFeaturesDocument,
+      PricingFeaturesDocumentData,
+      PricingFeaturesDocumentDataFeaturesListItem,
+      PricingFeaturesDocumentDataSlicesSlice,
       ProjectsDocument,
       ProjectsDocumentData,
       ProjectsDocumentDataSlicesSlice,
@@ -3476,6 +3770,10 @@ declare module "@prismicio/client" {
       FancyShortBannerSectionSliceDefaultPrimary,
       FancyShortBannerSectionSliceVariation,
       FancyShortBannerSectionSliceDefault,
+      FaqSliceSlice,
+      FaqSliceSliceDefaultItem,
+      FaqSliceSliceVariation,
+      FaqSliceSliceDefault,
       FeatureOneSectionSlice,
       FeatureOneSectionSliceDefaultPrimary,
       FeatureOneSectionSliceTestimonialHeroPrimary,
@@ -3517,6 +3815,11 @@ declare module "@prismicio/client" {
       PortfolioCategorySectionSliceDefaultItem,
       PortfolioCategorySectionSliceVariation,
       PortfolioCategorySectionSliceDefault,
+      PricingSliceSlice,
+      PricingSliceSliceDefaultPrimary,
+      PricingSliceSliceDefaultItem,
+      PricingSliceSliceVariation,
+      PricingSliceSliceDefault,
       ServiceBoxSlice,
       ServiceBoxSliceDefaultItem,
       ServiceBoxSliceFeaturesWrapperItem,

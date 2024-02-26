@@ -9,6 +9,7 @@ export const components = {
   fancy_short_banner_section: dynamic(
     () => import("./FancyShortBannerSection"),
   ),
+  faq_slice: dynamic(() => import("./FaqSlice")),
   feature_one_section: dynamic(() => import("./FeatureOneSection")),
   feature_two_section: dynamic(() => import("./FeatureTwoSection")),
   feedback_section: dynamic(() => import("./FeedbackSection")),
@@ -17,6 +18,7 @@ export const components = {
   portfolio_category_section: dynamic(
     () => import("./PortfolioCategorySection"),
   ),
+  pricing_slice: dynamic(() => import("./PricingSlice")),
   service_box: dynamic(() => import("./ServiceBox")),
   testimonial_feedback_section: dynamic(
     () => import("./TestimonialFeedbackSection"),

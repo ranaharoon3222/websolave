@@ -1,0 +1,38 @@
+{
+  "format": "custom",
+  "id": "pricing_features",
+  "label": "Pricing Features",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "features_list": {
+        "type": "Group",
+        "config": {
+          "label": "Features List",
+          "repeat": true,
+          "fields": {
+            "feature_text": {
+              "type": "Text",
+              "config": {
+                "label": "Feature Text",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "pricing_slice": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

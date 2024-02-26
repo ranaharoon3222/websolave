@@ -126,36 +126,6 @@ const ColumnTextSection = ({ slice }) => {
         {/* /.bg-wrapper */}
       </div>
     ),
-    faqsQuestions: (
-      <div className="fancy-feature-thirtyThree mt-100 lg-mt-80">
-        <div className="container">
-          <div className="border-bottom pb-100 lg-pb-70">
-            <div className="bg-wrapper position-relative" data-aos="fade-up">
-              <Faq4 slice={slice} />
-              <img
-                src="/images/shape/shape_133.svg"
-                alt="shape"
-                className="lazy-img shapes shape-one"
-              />
-            </div>
-            {/* /.bg-wrapper */}
-
-            <div className="text-center  mt-80 lg-mt-50" data-aos="fade-up">
-              <RichText
-                heading3={"fw-bold tx-dark mb-30"}
-                field={slice.primary.bottom_text}
-              />
-              <PrismicNextLink
-                href="/contact"
-                className="btn-twentyOne fw-500 tran3s"
-              >
-                {slice.primary.button_label}
-              </PrismicNextLink>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
   };
   const { variation } = slice;
   return (

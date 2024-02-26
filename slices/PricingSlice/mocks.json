@@ -1,0 +1,126 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"consult_text": {
+				"__TYPE__": "FieldContent",
+				"value": "on",
+				"type": "Text"
+			},
+			"consult_label": {
+				"__TYPE__": "FieldContent",
+				"value": "milk",
+				"type": "Text"
+			},
+			"consult_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"name",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "lose",
+							"type": "Text"
+						}
+					],
+					[
+						"background",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "movement",
+							"type": "Text"
+						}
+					],
+					[
+						"price",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "remember",
+							"type": "Text"
+						}
+					],
+					[
+						"monthly_text",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "transportation",
+							"type": "Text"
+						}
+					],
+					[
+						"renewal_text",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "weight",
+							"type": "Text"
+						}
+					],
+					[
+						"pricing_features",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Fugiat ex deserunt consequat proident proident cillum incididunt magna aute nisi. Sint id est exercitation elit ut aute mollit."
+									}
+								}
+							]
+						}
+					],
+					[
+						"details",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Consectetur dolore cillum excepteur enim fugiat incididunt deserunt incididunt labore dolor eu esse reprehenderit. Quis magna ea reprehenderit aliquip minim."
+									}
+								}
+							]
+						}
+					],
+					[
+						"button_label",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "terrible",
+							"type": "Text"
+						}
+					],
+					[
+						"trial_text",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "remarkable",
+							"type": "Text"
+						}
+					],
+					[
+						"button_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://prismic.io"
+							}
+						}
+					]
+				]
+			}
+		]
+	}
+]
