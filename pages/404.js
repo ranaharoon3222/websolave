@@ -29,7 +29,7 @@ const Pricing = () => {
                 or start from our Homepage.
               </p>
               <Link href='/' className='btn-twentyOne fw-500 tran3s'>
-                Back to home
+                Back to hom
               </Link>
             </div>
           </div>
