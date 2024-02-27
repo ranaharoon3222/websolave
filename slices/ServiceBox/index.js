@@ -114,15 +114,10 @@ const ServiceBox = ({ slice, context }) => {
                   paragraphClassName={"sc-title text-uppercase"}
                   field={slice.primary.top_text}
                 />
-                {/* <div className="sc-title text-uppercase">OUR TEAM</div> */}
                 <RichText
                   heading2={"main-title fw-bold tx-dark m0"}
                   field={slice.primary.title}
                 />
-
-                {/* <h2 className="main-title fw-bold tx-dark m0">
-              We’ve talented expert to help you
-            </h2> */}
               </div>{" "}
               {/* /.title-style-one */}
             </div>
@@ -130,12 +125,12 @@ const ServiceBox = ({ slice, context }) => {
               className="col-xxl-6 col-md-5 text-center text-md-end"
               data-aos="fade-left"
             >
-              <PrismicNextLink href={"#"} className="btn-one fw-500 sm-mt-30">
+              <PrismicNextLink
+                field={slice.primary.button_link}
+                className="btn-one fw-500 sm-mt-30"
+              >
                 {slice.primary.button_label}
               </PrismicNextLink>
-              {/* <a href="#" className="btn-one fw-500 sm-mt-30">
-            View full team
-          </a> */}
             </div>
           </div>{" "}
           {/* /.row */}
