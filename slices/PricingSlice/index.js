@@ -20,6 +20,71 @@ const PricingSlice = ({ slice }) => {
                 className="pr-table-wrapper mt-40 flex-fill"
                 data-aos="fade-up"
                 data-aos-delay={`0.${index + 1}s`}
+                style={{ position: "relative" }}
+              >
+                <div className="pack-name fw-500 tx-dark">{pricing.name}</div>
+                <RichText
+                  paragraphClassName="pack-details fs-14"
+                  field={pricing.details}
+                />
+                <div
+                  className="top-banner align-items-center d-md-flex"
+                  style={{ background: pricing.background }}
+                >
+                  <div className="price fw-500">
+                    <sup>$</sup>
+                    {pricing.price}
+                    <sub>/monthly</sub>
+                  </div>
+                </div>
+                <RichText
+                  field={pricing.pricing_features}
+                  list={"pr-feature style-none flex-fill"}
+                />
+                <div style={{ marginBottom: "25px" }}></div>{" "}
+                {/* Gap from bottom */}
+                {index === 1 ? (
+                  <PrismicNextLink
+                    field={pricing.button_link}
+                    className="btn-two fw-500 tran3s position-absolute bottom-0"
+                    style={{
+                      right: "15px",
+                      width: "90%",
+                      marginBottom: "20px",
+                    }}
+                  >
+                    {pricing.button_label}
+                  </PrismicNextLink>
+                ) : (
+                  <PrismicNextLink
+                    field={pricing.button_link}
+                    className="trial-button position-absolute bottom-0"
+                    style={{
+                      right: "15px",
+                      width: "90%",
+                      marginBottom: "20px",
+                    }}
+                  >
+                    {pricing.button_label}
+                  </PrismicNextLink>
+                )}
+                <div className="trial-text pt-25 tx-dark">
+                  {pricing.trial_text}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* <div className="container pricing-table-area-four pt-60 lg-pt-30">
+        <div className="row">
+          {slice.items.map((pricing, index) => (
+            <div key={index} className={`col-lg-4 col-md-6 d-flex`}>
+              <div
+                className="pr-table-wrapper mt-40 flex-fill"
+                data-aos="fade-up"
+                data-aos-delay={`0.${index + 1}s`}
               >
                 <div className="pack-name fw-500 tx-dark">{pricing.name}</div>
 
@@ -37,10 +102,7 @@ const PricingSlice = ({ slice }) => {
                     {pricing.price}
                     <sub>/monthly</sub>
                   </div>
-                  {/* <div>
-                    <span>{pricing.monthly_text}</span>
-                    <em className="d-block">{pricing.renewal_text}</em>
-                  </div> */}
+          
                 </div>
                 <RichText
                   field={pricing.pricing_features}
@@ -68,7 +130,7 @@ const PricingSlice = ({ slice }) => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
       <div className="container">
         <div
           className="text-center mt-70 lg-mt-40 aos-init aos-animate"
