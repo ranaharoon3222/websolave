@@ -119,6 +119,13 @@
             "placeholder": "",
             "select": null
           }
+        },
+        "price_tag": {
+          "type": "Text",
+          "config": {
+            "label": "Price Tag",
+            "placeholder": ""
+          }
         }
       }
     }

@@ -2712,6 +2712,16 @@ export interface PricingSliceSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   button_link: prismic.LinkField;
+
+  /**
+   * Price Tag field in *PricingSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.items[].price_tag
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  price_tag: prismic.KeyTextField;
 }
 
 /**

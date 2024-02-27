@@ -34,7 +34,7 @@ const PricingSlice = ({ slice }) => {
                   <div className="price fw-500">
                     <sup>$</sup>
                     {pricing.price}
-                    <sub>/monthly</sub>
+                    <sub>{pricing.price_tag}</sub>
                   </div>
                 </div>
                 <RichText
