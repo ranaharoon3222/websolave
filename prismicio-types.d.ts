@@ -855,68 +855,6 @@ export type PortfolioDocument<Lang extends string = string> =
     Lang
   >;
 
-/**
- * Item in *Pricing Features → Features List*
- */
-export interface PricingFeaturesDocumentDataFeaturesListItem {
-  /**
-   * Feature Text field in *Pricing Features → Features List*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: pricing_features.features_list[].feature_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  feature_text: prismic.KeyTextField;
-}
-
-type PricingFeaturesDocumentDataSlicesSlice = PricingSliceSlice;
-
-/**
- * Content for Pricing Features documents
- */
-interface PricingFeaturesDocumentData {
-  /**
-   * Features List field in *Pricing Features*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: pricing_features.features_list[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  features_list: prismic.GroupField<
-    Simplify<PricingFeaturesDocumentDataFeaturesListItem>
-  >;
-
-  /**
-   * Slice Zone field in *Pricing Features*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: pricing_features.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<PricingFeaturesDocumentDataSlicesSlice>;
-}
-
-/**
- * Pricing Features document from Prismic
- *
- * - **API ID**: `pricing_features`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type PricingFeaturesDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<PricingFeaturesDocumentData>,
-    "pricing_features",
-    Lang
-  >;
-
 type ProjectsDocumentDataSlicesSlice = never;
 
 /**
@@ -1053,7 +991,6 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PagesDocument
   | PortfolioDocument
-  | PricingFeaturesDocument
   | ProjectsDocument
   | ServicesDocument;
 
@@ -2660,6 +2597,16 @@ export interface PricingSliceSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   consult_link: prismic.LinkField;
+
+  /**
+   * Faq Title field in *PricingSlice → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_slice.primary.faq_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  faq_title: prismic.RichTextField;
 }
 
 /**
@@ -3735,10 +3682,6 @@ declare module "@prismicio/client" {
       PortfolioDocumentDataGalleryItem,
       PortfolioDocumentDataProjectslideimagesItem,
       PortfolioDocumentDataSlicesSlice,
-      PricingFeaturesDocument,
-      PricingFeaturesDocumentData,
-      PricingFeaturesDocumentDataFeaturesListItem,
-      PricingFeaturesDocumentDataSlicesSlice,
       ProjectsDocument,
       ProjectsDocumentData,
       ProjectsDocumentDataSlicesSlice,

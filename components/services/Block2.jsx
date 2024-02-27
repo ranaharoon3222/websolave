@@ -24,18 +24,18 @@ const Block2 = ({ slice }) => {
               />
             </div>
             <RichText
-              heading5={"fw-500 mt-35 mb-25"}
+              heading5={"fw-500 mt-35 mb-25 tran3s tx-dark"}
               field={card.title}
-              hyperlink={"tran3s tx-dark"}
+              // hyperlink={"tran3s tx-dark"}
             />
             <RichText paragraphClassName="mb-25" field={card.description} />
-            <PrismicNextLink field={card.link}>
+            {/* <PrismicNextLink field={card.link}>
               <img
                 src="/images/icon/icon_05.svg"
                 alt="icon"
                 className="lazy-img"
               />
-            </PrismicNextLink>
+            </PrismicNextLink> */}
           </div>
           {/* /.card-style-one */}
         </div>

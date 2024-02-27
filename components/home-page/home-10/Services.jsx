@@ -16,15 +16,15 @@ const Services = ({ item }) => {
           />
         </div>
         <RichText
-          heading5={"fw-500 mt-35 mb-25"}
+          heading5={"fw-500 mt-35 mb-25 tran3s tx-dark"}
           field={item.title}
-          hyperlink={"tran3s tx-dark"}
+          // hyperlink={"tran3s tx-dark"}
         />
 
         <RichText paragraphClassName="mb-25" field={item.description} />
-        <PrismicNextLink field={item.link}>
+        {/* <PrismicNextLink field={item.link}>
           <img src="/images/icon/icon_05.svg" alt="icon" className="lazy-img" />
-        </PrismicNextLink>
+        </PrismicNextLink> */}
       </div>
     </>
   );

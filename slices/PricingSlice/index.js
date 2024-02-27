@@ -15,9 +15,9 @@ const PricingSlice = ({ slice }) => {
       <div className="container pricing-table-area-four pt-60 lg-pt-30">
         <div className="row">
           {slice.items.map((pricing, index) => (
-            <div key={index} className={`col-lg-4 col-md-6 `}>
+            <div key={index} className={`col-lg-4 col-md-6 d-flex`}>
               <div
-                className="pr-table-wrapper mt-40"
+                className="pr-table-wrapper mt-40 flex-fill"
                 data-aos="fade-up"
                 data-aos-delay={`0.${index + 1}s`}
               >
@@ -44,7 +44,7 @@ const PricingSlice = ({ slice }) => {
                 </div>
                 <RichText
                   field={pricing.pricing_features}
-                  list={"pr-feature style-none"}
+                  list={"pr-feature style-none flex-fill"}
                 />
                 {index === 1 ? (
                   <PrismicNextLink
@@ -69,12 +69,12 @@ const PricingSlice = ({ slice }) => {
           ))}
         </div>
       </div>
-      <div class="container">
+      <div className="container">
         <div
-          class="text-center bg-light px-3 py-2 mt-70 lg-mt-40 aos-init aos-animate"
+          className="text-center mt-70 lg-mt-40 aos-init aos-animate"
           data-aos="fade-up"
         >
-          <div class="d-inline-block consult-text fs-18 fw-500 tx-dark">
+          <div className="d-inline-block px-3 py-2 bg-light consult-text fs-18 fw-500 tx-dark">
             {slice.primary.consult_text}
             <PrismicNextLink
               field={slice.primary.consult_link}
@@ -83,6 +83,7 @@ const PricingSlice = ({ slice }) => {
               {slice.primary.consult_label}
             </PrismicNextLink>
           </div>
+          <RichText field={slice.primary.faq_title} heading2={"fw-700 mt-30"} />
         </div>
       </div>
     </section>

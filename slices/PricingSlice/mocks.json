@@ -19,6 +19,17 @@
 					"__TYPE__": "ExternalLink",
 					"url": "https://prismic.io"
 				}
+			},
+			"faq_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ex veniam exercitation aute commodo aliquip irure. Commodo veniam incididunt tempor amet dolor sit in qui nisi voluptate nulla proident in id eu. Dolor dolor dolor est cupidatat enim ut ea."
+						}
+					}
+				]
 			}
 		},
 		"items": [
