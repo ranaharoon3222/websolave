@@ -8,65 +8,19 @@
 				"__TYPE__": "GroupItemContent",
 				"value": [
 					[
-						"image",
-						{
-							"origin": {
-								"id": "UFrsHcCi21A",
-								"url": "https://images.unsplash.com/photo-1581340752304-a781f821e8ce?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MDg1NjgwMjd8MA&ixlib=rb-4.0.3&q=85",
-								"width": 3092,
-								"height": 5353
-							},
-							"url": "https://images.unsplash.com/photo-1581340752304-a781f821e8ce?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MDg1NjgwMjd8MA&ixlib=rb-4.0.3&q=85",
-							"width": 3092,
-							"height": 5353,
-							"edit": {
-								"background": "transparent",
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								}
-							},
-							"credits": null,
-							"alt": "sliced green lime on brown wooden table",
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
-					[
-						"name",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Eu dolor tempor exercitation excepteur aliquip sunt ex consectetur officia ad. Consequat cupidatat ea occaecat aute qui minim aute laborum ex non eu do."
-									}
-								}
-							]
-						}
-					],
-					[
-						"tag",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Ullamco dolor excepteur dolor aliqua irure eiusmod do. Sint nulla ex ad minim quis ullamco labore."
-									}
-								}
-							]
-						}
-					],
-					[
-						"category",
+						"filter_by",
 						{
 							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "shopify"
+							"value": "aloud",
+							"type": "Text"
+						}
+					],
+					[
+						"label",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "alive",
+							"type": "Text"
 						}
 					]
 				]
@@ -75,11 +29,19 @@
 				"__TYPE__": "GroupItemContent",
 				"value": [
 					[
-						"category",
+						"filter_by",
 						{
 							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "react"
+							"value": "supply",
+							"type": "Text"
+						}
+					],
+					[
+						"label",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "twenty",
+							"type": "Text"
 						}
 					]
 				]

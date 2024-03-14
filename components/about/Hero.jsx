@@ -17,6 +17,7 @@ const Hero = ({ slice }) => {
           </div>
           <RichText
             paragraphClassName="fs-20 mt-30 lg-mt-20"
+            em={"mt-5"}
             field={slice.primary.sub_title}
           />
         </div>

@@ -37,13 +37,6 @@
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "date": {
-        "type": "Date",
-        "config": {
-          "label": "Date",
-          "placeholder": ""
-        }
-      },
       "project_details": {
         "type": "Group",
         "config": {
@@ -204,15 +197,6 @@
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "hero_top_text": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Hero Top Text",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-        }
-      },
       "hero_image": {
         "type": "Image",
         "config": {
@@ -221,11 +205,13 @@
           "thumbnails": []
         }
       },
-      "date_title": {
-        "type": "Text",
+      "hero_top_text": {
+        "type": "StructuredText",
         "config": {
-          "label": "Date Title",
-          "placeholder": ""
+          "label": "Hero Top Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
       "project_category": {

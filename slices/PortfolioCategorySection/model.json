@@ -13,37 +13,18 @@
       "imageUrl": "",
       "primary": {},
       "items": {
-        "category": {
+        "filter_by": {
           "type": "Text",
           "config": {
-            "label": "Category",
+            "label": "Filter By",
             "placeholder": ""
           }
         },
-        "image": {
-          "type": "Image",
+        "label": {
+          "type": "Text",
           "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "name": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Name",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-          }
-        },
-        "tag": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Tag",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+            "label": "Label",
+            "placeholder": ""
           }
         }
       }

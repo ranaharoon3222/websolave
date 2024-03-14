@@ -21,30 +21,15 @@ const PortfolioGallery6 = ({ slice, all_projects }) => {
     <div className="portfolio-gallery-seven pt-30">
       <div className="container">
         <ul className="style-none text-center isotop-menu-wrapper g-control-nav-two">
-          <li
-            className={filter === "*" ? "is-checked" : ""}
-            onClick={() => setFilter("*")}
-          >
-            All
-          </li>
-          <li
-            className={filter === "shopify" ? "is-checked" : ""}
-            onClick={() => setFilter("shopify")}
-          >
-            Shopify
-          </li>
-          <li
-            className={filter === "wordpress" ? "is-checked" : ""}
-            onClick={() => setFilter("wordpress")}
-          >
-            Wordpress
-          </li>
-          <li
-            className={filter === "react" ? "is-checked" : ""}
-            onClick={() => setFilter("react")}
-          >
-            React
-          </li>
+          {slice.items.map((item) => (
+            <li
+              key={item.label}
+              className={filter === item.filter_by ? "is-checked" : ""}
+              onClick={() => setFilter(item.filter_by)}
+            >
+              {item.label}
+            </li>
+          ))}
         </ul>
 
         <div className="row pt-90 lg-pt-50">

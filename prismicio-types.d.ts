@@ -615,17 +615,6 @@ interface PortfolioDocumentData {
   sidebar_description: prismic.RichTextField;
 
   /**
-   * Date field in *Portfolio*
-   *
-   * - **Field Type**: Date
-   * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio.date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#date
-   */
-  date: prismic.DateField;
-
-  /**
    * Project Details field in *Portfolio*
    *
    * - **Field Type**: Group
@@ -742,17 +731,6 @@ interface PortfolioDocumentData {
   hero_title: prismic.RichTextField;
 
   /**
-   * Hero Top Text field in *Portfolio*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio.hero_top_text
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  hero_top_text: prismic.RichTextField;
-
-  /**
    * Hero Image field in *Portfolio*
    *
    * - **Field Type**: Image
@@ -764,15 +742,15 @@ interface PortfolioDocumentData {
   hero_image: prismic.ImageField<never>;
 
   /**
-   * Date Title field in *Portfolio*
+   * Hero Top Text field in *Portfolio*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio.date_title
+   * - **API ID Path**: portfolio.hero_top_text
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  date_title: prismic.KeyTextField;
+  hero_top_text: prismic.RichTextField;
 
   /**
    * Project Category field in *Portfolio*
@@ -2493,44 +2471,24 @@ export type NavigationItemSlice = prismic.SharedSlice<
  */
 export interface PortfolioCategorySectionSliceDefaultItem {
   /**
-   * Category field in *PortfolioCategorySection → Items*
+   * Filter By field in *PortfolioCategorySection → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio_category_section.items[].category
+   * - **API ID Path**: portfolio_category_section.items[].filter_by
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  category: prismic.KeyTextField;
+  filter_by: prismic.KeyTextField;
 
   /**
-   * Image field in *PortfolioCategorySection → Items*
+   * Label field in *PortfolioCategorySection → Items*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio_category_section.items[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **API ID Path**: portfolio_category_section.items[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Name field in *PortfolioCategorySection → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio_category_section.items[].name
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  name: prismic.RichTextField;
-
-  /**
-   * Tag field in *PortfolioCategorySection → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: portfolio_category_section.items[].tag
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  tag: prismic.RichTextField;
+  label: prismic.KeyTextField;
 }
 
 /**
